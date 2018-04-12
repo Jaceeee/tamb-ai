@@ -57,9 +57,10 @@ class Place extends Component {
           </h3>
           <PlacesList places={this.props.places}
                       displayDetails={this.displayDetails.bind(this)}/>
+          <br />
           <div>
-            {this.state.details ? `${this.state.details.name}, ${this.state.details.location}: ${this.state.details.type}: Contact at ${this.state.details.contact_number}`
-                     : "Hey"}
+            {this.state.details.name !== "" ? `${this.state.details.name}, ${this.state.details.location}: ${this.state.details.type}: Contact at ${this.state.details.contact_number}`
+                     : "No place currently selected"}
           </div>
         </div>
       );
