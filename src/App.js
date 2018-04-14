@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import User from './containers/User';
-import Place from './containers/Place'
+import Place from './containers/Place';
+import api from './api';
 
 class App extends Component {
   constructor() {
@@ -53,7 +54,7 @@ class App extends Component {
       <div>
         <User users={this.state.users}
               setUser={this.selectCurrentUser.bind(this)}
-              places={this.state.places}/>        
+              places={this.state.places}/>
         <h2>Current User:</h2>
         <p>{this.state.currentUser.first_name !== "" ? `${this.state.currentUser.last_name}, ${this.state.currentUser.first_name}` : ""}</p>
       </div>
