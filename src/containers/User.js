@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Place from './Place.js';
+
 
 function UsersList (props) {
     const users = props.users;
@@ -38,8 +38,7 @@ class User extends Component {
           Users
         </h1>
         <UsersList users={this.props.users}
-                   setUser={this.props.setUser}/>
-        <Place places={this.props.places}/>        
+                   setUser={this.props.setUser}/>        
       </div>
     );
   }
