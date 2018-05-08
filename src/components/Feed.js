@@ -3,7 +3,7 @@ import User from '../containers/User';
 import Place from '../containers/Place';
 import AddPlace from './AddPlace';
 import WriteComment from './WriteComment';
-import Comments from '../containers/Comment';
+import Comments from '../containers/Comments';
 import FeedItem from '../containers/FeedItem';
 
 class Feed extends Component {
@@ -33,11 +33,11 @@ class Feed extends Component {
   componentWillMount() {
     this.setState({
       places: [
-        {id: 1, placeName: "Kawasan Falls", location: "Cebu", contactNumber: "09171241723", type: "Ecological"},
-        {id: 2, placeName: "Taoist Temple", location: "Cebu", contactNumber: "09253451723",  type: "Religious"},
-        {id: 3, placeName: "Maribago Resort", location: "Cebu", contactNumber: "09809212323", type: "Resort"},
-        {id: 4, placeName: "Silogan ni Gian", location: "Cebu", contactNumber: "09171296723", type: "Restaurant"},
-        {id: 5, placeName: "Plaza Independencia", location: "Cebu", contactNumber: "09412241723", type: "Restaurant"},
+        {id: 1, placeName: "Kawasan Falls", location: "Cebu", contactNumber: "09171241723", type: "Ecological", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non commodo lectus. Etiam commodo massa sed turpis molestie, vel rhoncus turpis condimentum. Nam in felis nisi. Morbi quis lacus arcu. Fusce arcu odio, tempor vitae mattis sit amet, volutpat eget ipsum. Morbi eget sem eleifend, tristique diam venenatis, mollis ex. In auctor lorem nunc, nec aliquam dolor feugiat ac. Nunc convallis ex quis velit finibus, et vestibulum mauris eleifend. Mauris id magna volutpat, fermentum massa id, posuere eros. Sed magna enim, efficitur ac vehicula varius, iaculis id libero. Quisque ut lectus aliquam, luctus lacus fermentum, mollis metus. Cras lacinia est sed augue fermentum molestie. Fusce nunc ligula, ornare a enim nec, bibendum fringilla arcu. Mauris at sodales sem. Integer aliquam, velit nec convallis finibus, urna tortor cursus diam, vel mollis massa libero vel massa.", imageUrl: "http://kawasanfalls.net/wp-content/uploads/2011/04/kawasan-falls-pana-4.jpg"},
+        {id: 2, placeName: "Taoist Temple", location: "Cebu", contactNumber: "09253451723",  type: "Religious", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non commodo lectus. Etiam commodo massa sed turpis molestie, vel rhoncus turpis condimentum. Nam in felis nisi. Morbi quis lacus arcu. Fusce arcu odio, tempor vitae mattis sit amet, volutpat eget ipsum. Morbi eget sem eleifend, tristique diam venenatis, mollis ex. In auctor lorem nunc, nec aliquam dolor feugiat ac. Nunc convallis ex quis velit finibus, et vestibulum mauris eleifend. Mauris id magna volutpat, fermentum massa id, posuere eros. Sed magna enim, efficitur ac vehicula varius, iaculis id libero. Quisque ut lectus aliquam, luctus lacus fermentum, mollis metus. Cras lacinia est sed augue fermentum molestie. Fusce nunc ligula, ornare a enim nec, bibendum fringilla arcu. Mauris at sodales sem. Integer aliquam, velit nec convallis finibus, urna tortor cursus diam, vel mollis massa libero vel massa.", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Taoist_Temple%2C_Cebu%2C_Philippines.jpg"},
+        {id: 3, placeName: "Maribago Resort", location: "Cebu", contactNumber: "09809212323", type: "Resort", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non commodo lectus. Etiam commodo massa sed turpis molestie, vel rhoncus turpis condimentum. Nam in felis nisi. Morbi quis lacus arcu. Fusce arcu odio, tempor vitae mattis sit amet, volutpat eget ipsum. Morbi eget sem eleifend, tristique diam venenatis, mollis ex. In auctor lorem nunc, nec aliquam dolor feugiat ac. Nunc convallis ex quis velit finibus, et vestibulum mauris eleifend. Mauris id magna volutpat, fermentum massa id, posuere eros. Sed magna enim, efficitur ac vehicula varius, iaculis id libero. Quisque ut lectus aliquam, luctus lacus fermentum, mollis metus. Cras lacinia est sed augue fermentum molestie. Fusce nunc ligula, ornare a enim nec, bibendum fringilla arcu. Mauris at sodales sem. Integer aliquam, velit nec convallis finibus, urna tortor cursus diam, vel mollis massa libero vel massa.", imageUrl: "https://t-ec.bstatic.com/images/hotel/max1280x900/479/47974218.jpg"},
+        {id: 4, placeName: "Silogan ni Gian", location: "Cebu", contactNumber: "09171296723", type: "Restaurant", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non commodo lectus. Etiam commodo massa sed turpis molestie, vel rhoncus turpis condimentum. Nam in felis nisi. Morbi quis lacus arcu. Fusce arcu odio, tempor vitae mattis sit amet, volutpat eget ipsum. Morbi eget sem eleifend, tristique diam venenatis, mollis ex. In auctor lorem nunc, nec aliquam dolor feugiat ac. Nunc convallis ex quis velit finibus, et vestibulum mauris eleifend. Mauris id magna volutpat, fermentum massa id, posuere eros. Sed magna enim, efficitur ac vehicula varius, iaculis id libero. Quisque ut lectus aliquam, luctus lacus fermentum, mollis metus. Cras lacinia est sed augue fermentum molestie. Fusce nunc ligula, ornare a enim nec, bibendum fringilla arcu. Mauris at sodales sem. Integer aliquam, velit nec convallis finibus, urna tortor cursus diam, vel mollis massa libero vel massa.", imageUrl: "https://cdn1.ph.orstatic.com/userphoto/doorphoto/0/2V/000KGOF6FA9F68DD94BCDElv.jpg"},
+        {id: 5, placeName: "Plaza Independencia", location: "Cebu", contactNumber: "09412241723", type: "Restaurant", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non commodo lectus. Etiam commodo massa sed turpis molestie, vel rhoncus turpis condimentum. Nam in felis nisi. Morbi quis lacus arcu. Fusce arcu odio, tempor vitae mattis sit amet, volutpat eget ipsum. Morbi eget sem eleifend, tristique diam venenatis, mollis ex. In auctor lorem nunc, nec aliquam dolor feugiat ac. Nunc convallis ex quis velit finibus, et vestibulum mauris eleifend. Mauris id magna volutpat, fermentum massa id, posuere eros. Sed magna enim, efficitur ac vehicula varius, iaculis id libero. Quisque ut lectus aliquam, luctus lacus fermentum, mollis metus. Cras lacinia est sed augue fermentum molestie. Fusce nunc ligula, ornare a enim nec, bibendum fringilla arcu. Mauris at sodales sem. Integer aliquam, velit nec convallis finibus, urna tortor cursus diam, vel mollis massa libero vel massa.", imageUrl: "https://cebudailynews.files.wordpress.com/2011/03/031011ted001-scaled-1000.jpg"},
       ],
       users: [
         {id: 1, first_name: "Juan Carlos", last_name: "Roldan", location: "Cebu", email: "anonymous@anonymous.com"},
@@ -75,7 +75,7 @@ class Feed extends Component {
   addComment(comment) {    
     let comments = this.state.comments;
     comments[this.state.currentPlace.id - 1].entries.push(comment);
-    this.setState({...this.state, comments});    
+    this.setState({...this.state, comments});
   }
 
   changeAction() {
@@ -118,7 +118,9 @@ class Feed extends Component {
 
 		return (
 			<div className="col-sm-7" style={{backgroundColor: "lavenderblush"}}>
-				<FeedsList  places={this.state.places}/>
+				<FeedsList  places={this.state.places}
+                    users={this.state.users} 
+                    currentUser={this.state.currentUser.first_name !== "" ? `${this.state.currentUser.first_name} ${this.state.curretnUser.last_name}` : "Unknown"}/>
 
 				<User users={this.state.users}
 		              setUser={this.selectCurrentUser.bind(this)}
@@ -174,10 +176,19 @@ const SeeComments = (props) => {
 
 function FeedsList(props) {
 	const feed = props.places;
-	const feedItems = feed.map((feedItem) => {
+	const feedItems = feed.map((feedItem) => {    
 		return (
-			<FeedItem name={feedItem.placeName} 
-								key={feedItem.id.toString()} />
+			<FeedItem id={feedItem.id}
+                places={feed}
+                name={feedItem.placeName} 
+								contact={feedItem.contactNumber}
+								type={feedItem.type}
+								description={feedItem.description}
+								imageUrl={feedItem.imageUrl}
+								key={feedItem.id.toString()} 
+                places={feed}
+                currentUser={props.currentUser}
+                className={feedItem.type} />
 		);
 	});
 

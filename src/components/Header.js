@@ -17,7 +17,7 @@ class Header extends Component {
 								</div>
 
 								<form className="navbar-form navbar-left" action="action_page.php">
-									<div class="input-group">
+									<div className="input-group">
 										<input type="text" className="form-control" placeholder="Search for Places" />
 										<div className="input-group-btn">
 											<button className="btn btn-default" type="submit">

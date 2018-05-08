@@ -170,6 +170,17 @@ body {
 	margin-top: 2vh;
 }
 
+.rateBtn {
+	float: right;
+	margin-top: 0.5vh;
+}
+
+.placeDesc {
+	max-height: 29.4vh;
+	overflow: auto;
+	margin-bottom: 2vh;
+}
+
 /*.caption {*/
 	/*background-color: red;*/
 	/*min-height: 4vh !important;*/
