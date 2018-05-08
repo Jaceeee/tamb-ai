@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import User from '../containers/User';
 import Place from '../containers/Place';
 import AddPlace from './AddPlace';
-import WriteComment from './WriteComment';
 import Comments from '../containers/Comments';
 import FeedItem from '../containers/FeedItem';
 
@@ -155,11 +154,9 @@ class Feed extends Component {
 const RenderAction = (props) => {
   switch(props.currentAction) {
     case 0:
+    default:
       return (<AddPlace createNewPlace={props.createNewPlace}
-                  places={props.places}/>);
-    case 1:
-      return (<WriteComment currentPlace={props.currentPlace}
-                            addComment={props.addComment}/>)
+                  places={props.places}/>);    
   }
 
   return null;

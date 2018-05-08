@@ -25,3 +25,5 @@ heroku.tar.gz
 
 loadTestData.js
 updateTestData.js
+# database
+database.json
