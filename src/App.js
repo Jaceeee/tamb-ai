@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Login from './components/Login';
 import Header from './components/Header';
 import LeftNav from './components/LeftNav';
+import RightNav from './components/RightNav';
 import Feed from './components/Feed';
 
 class App extends Component {    
@@ -44,7 +45,8 @@ const LogSwitcher = (props) => {
           <br />
           <br />
           <LeftNav />
-          <Feed />           
+          <Feed />         
+          <RightNav />  
         </div>
       )
   }
