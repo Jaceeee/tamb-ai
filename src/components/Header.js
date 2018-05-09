@@ -26,7 +26,10 @@ class Header extends Component {
 										</div>
 									</div>
 								</form>
-								<button className="btn btn-danger">Logout</button>
+								<button className="btn btn-danger"
+												onClick={this.props.changeDisplayState.bind(this, 0)}>
+									Logout
+								</button>
 							</div>
 						</div>
 					</nav>

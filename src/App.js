@@ -8,7 +8,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      displayState: 0
+      displayState: 1
     }
   }
 
