@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+	import React, {Component} from 'react';
 import Comments from './Comments.js';
 
 class FeedItem extends Component {
@@ -8,7 +8,9 @@ class FeedItem extends Component {
 				<div className="container-fluid">
 					<div className="panel panel-default feed">
 						<div className="col-sm-1 profpic">
-							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Chocolate_Hills_overview.JPG/1200px-Chocolate_Hills_overview.JPG" className="img-responsive" />
+							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Chocolate_Hills_overview.JPG/1200px-Chocolate_Hills_overview.JPG" 
+								className="img-responsive" 
+								alt={`${this.props.name}`}/>
 						</div>
 						<div className="col-sm-10 profname">
 							<h5>{this.props.name}</h5>							
@@ -19,12 +21,7 @@ class FeedItem extends Component {
 						<div className="container-fluid">
 							<div className="container-fluid">
 								<div className="panel panel-default posting">
-									<img src={this.props.imageUrl} className="img-responsive" id="myImg" alt={this.props.imageUrl} style={{paddingLeft: "20%", paddingBottom: "10%"}} width="400px" height="100px"/>
-									<div id="myModal" className="modal">
-										<span className="close">&times;</span>
-										<img className="modal-content" id="img01" />
-										<div id="capt"></div>
-									</div>
+									<img src={this.props.imageUrl} className="img-responsive" id="myImg" alt={this.props.imageUrl} style={{paddingLeft: "20%", paddingBottom: "10%"}} width="400px" height="100px"/>									
 								</div>
 							</div>
 						</div>

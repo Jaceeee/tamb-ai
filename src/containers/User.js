@@ -25,12 +25,7 @@ function UserItem(props) {
   );
 }
 
-class User extends Component {
-  constructor() {
-    super();
-  }
-
-
+class User extends Component {  
   render() {
     return(
       <div>

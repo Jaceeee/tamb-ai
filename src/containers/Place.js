@@ -42,15 +42,12 @@ class Place extends Component {
       })
     }
 
-    displayDetails(place) {
-      console.log(place.target.attributes["place_id"].nodeValue);
-      this.setState({details: this.props.places[place.target.attributes["place_id"].nodeValue - 1]});
-      console.log(this.state.details);
+    displayDetails(place) {      
+      this.setState({details: this.props.places[place.target.attributes["place_id"].nodeValue - 1]});      
       this.props.setPlace(place);
     }
 
-    render() {
-      console.log(this.state.details);
+    render() {      
       return(
         <div>
           <h3>

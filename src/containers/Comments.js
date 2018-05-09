@@ -4,21 +4,24 @@ function CurrentCommentsList(props) {
 	const comments = props.comments;
 	const placeId = props.placeId;
 	const currentComments = comments.map((comment) => {							
-		if(placeId == comment.placeId) 
+		if(placeId === comment.placeId) 
 			return (<CurrentCommentItem value={comment.body}
 											   commenterImageUrl={comment.userImageUrl}
 											   commenterName={comment.commenterName}
 											   userId={comment.userId}
 											   placeId={comment.placeId}
 											   key={comment.id.toString()} />
-			);		
+			);
+		else {
+			return null;
+		}
 	});
 
 	return (
 		<ul className="commentList">
 			<li className="commentContainer">
 				<div className="commenterImage">
-					<img src="http://placekitten.com/50/50" />
+					<img src="http://placekitten.com/50/50" alt={props.placeId}/>
 				</div>
 				<div className="commentText">
 					<p className=""><span className="username">Juan Carlos Roldan</span>Some text</p><div className="date sub-text">on May 2, 2018</div>
@@ -33,7 +36,7 @@ function CurrentCommentItem(props) {
 	return(
 		<li className="commentContainer">
 			<div className="commenterImage">
-				<img src={props.commenterImageUrl} />
+				<img src={props.commenterImageUrl} alt={props.commenterName}/>
 			</div>
 			<div className="commentText">
 				<p className=""><span className="username">{props.commenterName}</span>{props.value}</p><div className="date sub-text">on May 2, 2018</div>
@@ -42,12 +45,7 @@ function CurrentCommentItem(props) {
 	);
 }
 
-class Comments extends Component {
-	constructor() {
-		super();
-
-	}
-
+class Comments extends Component {	
 	componentWillMount() {
 		this.setState({
 			comments: [
@@ -73,12 +71,9 @@ class Comments extends Component {
 
 	addComment(e) {
 		const { commentBody } = this.refs;
-		const newId = this.state.comments.length + 1;
-		console.log(this.props.currentUser);
-		// const commenterName = this.props.currentUser.first_name + " " + this.props.currentUser.last_name;		
+		const newId = this.state.comments.length + 1;				
 		const commenterName="Juan Carlos Roldan";
-		const userId = 1;
-		console.log(commentBody.value);
+		const userId = 1;		
 		let comments = this.state.comments; 
 		if(commentBody.value !== ""){
 			let newComment = {
@@ -101,15 +96,13 @@ class Comments extends Component {
 		e.preventDefault();
 	}
 
-	render() {
-		console.log("inside comments");
-		console.log(this.props.currentUser);
+	render() {		
 		return (
 			<div id={"comment"+this.props.placeId} className="tab-pane fade">
 				<CurrentCommentsList placeId={this.props.placeId}									 
 									 comments={this.state.comments}
 									 />
-				<form className="form-inline commentForm" role="form">
+				<form className="form-inline commentForm">
 					<div className="input-group">
 						<input ref="commentBody" type="text" id={this.props.placeId} placeholder="Write a comment..." className="form-control commentBox" />
 						<div className="input-group-btn">

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class LeftNav extends Component {
 	render() {
 		return(
-			<div className="col-sm-2 leftdiv" style={{backgroundColor: "lavender"}}>        
+			<div className="col-sm-2 leftdiv" style={{backgroundColor: "lavender", position: "relative", top: "35px"}}>        
         <div className="panel-group">
           <div className="panel panel-default">
             <div className="panel-heading">

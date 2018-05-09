@@ -13,7 +13,7 @@ class Header extends Component {
 							</button>
 							<div className="container-fluid">
 								<div className="navbar-header">
-									<a href="#" className="navbar-brand">Tamb-ai</a>
+									<h2 className="navbar-brand">Tamb-ai</h2>
 								</div>
 
 								<form className="navbar-form navbar-left" action="action_page.php">
@@ -26,15 +26,7 @@ class Header extends Component {
 										</div>
 									</div>
 								</form>
-
-								<div className="collapse navbar-collapse" id="navlinks">
-									<ul className="nav navbar-nav navbar-right">
-										<li className="active"><a href="#">Home</a></li>
-										<li><a href="#">Page 1</a></li>
-										<li><a href="#">Page 2</a></li>
-										<li><a href="#">Page 3</a></li>
-									</ul>
-								</div>
+								<button className="btn btn-danger">Logout</button>
 							</div>
 						</div>
 					</nav>
