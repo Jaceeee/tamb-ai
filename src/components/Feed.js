@@ -1,51 +1,29 @@
 import React, { Component } from 'react';
 import FeedItem from '../containers/FeedItem';
-import {firebase} from '../firebase';
-
-const base = firebase.base;
 
 class Feed extends Component {	
 	constructor() {
 		super();
 		this.state = {
-			places: [],
-			users: [],
+			places: [{
+				id: 0
+			}],
+			users: [{}],
 			currentUser: {
 				last_name: "Unk",
 				first_name: "Unk"
 			}
 		}
 	}
-  componentWillMount() {
-    this.usersRef = base.syncState('users', {
-      context: this,
-      state: 'users'
-    });
-    this.placesRef = base.syncState('places', {
-    	context: this,
-    	state: 'places'
-    });
-    this.commentsRef = base.syncState('comments', {
-    	context: this,
-    	state: 'comments'
-    });
-    this.ratingsRef = base.syncState('ratings', {
-    	context: this,
-    	state: 'ratings'
-    });
-  }
-
-  componentWillUnount() {
-    base.removeBinding(this.usersRef);
-    base.removeBinding(this.placesRef);
-    base.removeBinding(this.commentsRef);
-    base.removeBinding(this.ratingsRef);
-  }
+	
+	componentWillMount() {
+		this.setState({...this.state, places: this.props.places, users: this.props.users});
+	}
 
 	render () {			
 		return (
 			<div className="col-sm-7" style={{backgroundColor: "lavenderblush", position: "relative", top: "10px"}}>
-				<FeedsList  places={this.state.places}
+				<FeedsList  places={this.state.places} // naa diri ang location
                     users={this.state.users} 
                     currentUser={this.state.currentUser.first_name !== "" ? `${this.state.currentUser.first_name} ${this.state.currentUser.last_name}` : "Unknown"}/>	
 	   	</div>
@@ -64,7 +42,8 @@ function FeedsList(props) {
 				type={feedItem.type}
 				description={feedItem.description}
 				imageUrl={feedItem.imageUrl}
-				key={feedItem.id.toString()} 
+        location = {feedItem.location}
+        key={feedItem.id.toString()} 
                 places={feed}
                 currentUser={props.currentUser}
                 className={feedItem.type} />
