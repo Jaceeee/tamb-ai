@@ -5,26 +5,28 @@ class Feed extends Component {
 	constructor() {
 		super();
 		this.state = {
-			places: [{
-				id: 0
-			}],
+			places: [{}],
 			users: [{}],
 			currentUser: {
 				last_name: "Unk",
 				first_name: "Unk"
-			}
-		}
+			},
+			loaded: false
+		}		
 	}
-	
-	componentWillMount() {
-		this.setState({...this.state, places: this.props.places, users: this.props.users});
+
+	componentDidUpdate() {
+		console.log(this.state);
+		if(!this.state.loaded) {
+			this.setState({places: this.props.places, users: this.props.users, loaded: true});
+		}
 	}
 
 	render () {			
 		return (
 			<div className="col-sm-7" style={{backgroundColor: "lavenderblush", position: "relative", top: "10px"}}>
-				<FeedsList  places={this.state.places} // naa diri ang location
-                    users={this.state.users} 
+				<FeedsList  places={this.props.places} // naa diri ang location
+                    users={this.props.users} 
                     currentUser={this.state.currentUser.first_name !== "" ? `${this.state.currentUser.first_name} ${this.state.currentUser.last_name}` : "Unknown"}/>	
 	   	</div>
     )
@@ -32,7 +34,7 @@ class Feed extends Component {
 }
 
 function FeedsList(props) {
-	const feed = props.places;
+	const feed = props.places;	
 	const feedItems = feed.map((feedItem) => {    
 		return (
 			<FeedItem id={feedItem.id}
@@ -42,8 +44,8 @@ function FeedsList(props) {
 				type={feedItem.type}
 				description={feedItem.description}
 				imageUrl={feedItem.imageUrl}
-        location = {feedItem.location}
-        key={feedItem.id.toString()} 
+        		location = {feedItem.location}
+        		key={feedItem.id.toString()} 
                 places={feed}
                 currentUser={props.currentUser}
                 className={feedItem.type} />
