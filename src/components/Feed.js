@@ -16,7 +16,6 @@ class Feed extends Component {
 	}
 
 	componentDidUpdate() {
-		console.log(this.state);
 		if(!this.state.loaded) {
 			this.setState({places: this.props.places, users: this.props.users, loaded: true});
 		}
