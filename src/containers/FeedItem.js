@@ -1,4 +1,4 @@
-	import React, {Component} from 'react';
+import React, {Component} from 'react';
 import Comments from './Comments.js';
 import base from '../firebase/firebase.js';
 
@@ -19,11 +19,15 @@ class FeedItem extends Component {
 							<h5>{this.props.name}</h5>							
 							<h6>{this.props.contact}</h6>
 							<h6>{this.props.type}</h6>
+<<<<<<< HEAD
 							<p>Visit 
 								<a href="#">
 									<i className="glyphicon glyphicon-map-marker"></i>
 								</a>
 							</p>
+=======
+							<p>Visit <a href="#" onClick={this.props.changeCurrentMapLocation.bind(this, this.props.location)}><i className="glyphicon glyphicon-map-marker"></i></a></p>
+>>>>>>> master
 						</div>
 						<div className="container-fluid">
 							<div className="container-fluid">

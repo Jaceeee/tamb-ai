@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+<<<<<<< HEAD
 
 class RightNav extends Component {
 	render() {
@@ -16,6 +17,17 @@ class RightNav extends Component {
             
             
         )
+=======
+class RightNav extends Component {	
+	render() {
+		if(!this.props.loaded) {
+			return <div>Loading... </div>
+		}
+		return(
+			<div>			
+			</div>
+		)
+>>>>>>> master
 	}
 }
 
