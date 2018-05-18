@@ -13,21 +13,16 @@ class Feed extends Component {
 			},
 			loaded: false
 		}		
-	}
-
-	componentDidUpdate() {
-		console.log(this.state);
-		if(!this.state.loaded) {
-			this.setState({places: this.props.places, users: this.props.users, loaded: true});
-		}
-	}
+	}	
 
 	render () {			
+		console.log(this.props);
 		return (
 			<div className="col-sm-7" style={{backgroundColor: "lavenderblush", position: "relative", top: "10px"}}>
 				<FeedsList  places={this.props.places} // naa diri ang location
                     users={this.props.users} 
-                    currentUser={this.state.currentUser.first_name !== "" ? `${this.state.currentUser.first_name} ${this.state.currentUser.last_name}` : "Unknown"}/>	
+                    currentUser={this.state.currentUser.first_name !== "" ? `${this.state.currentUser.first_name} ${this.state.currentUser.last_name}` : "Unknown"}
+                    changeCurrentMapLocation={this.props.changeCurrentMapLocation}/>	
 	   	</div>
     )
 	}
@@ -40,15 +35,16 @@ function FeedsList(props) {
 			<FeedItem id={feedItem.id}
                 places={feed}
                 name={feedItem.placeName} 
-				contact={feedItem.contactNumber}
-				type={feedItem.type}
-				description={feedItem.description}
-				imageUrl={feedItem.imageUrl}
-        		location = {feedItem.location}
-        		key={feedItem.id.toString()} 
-                places={feed}
+								contact={feedItem.contactNumber}
+								type={feedItem.type}
+								description={feedItem.description}
+								imageUrl={feedItem.imageUrl}
+        				location = {feedItem.location}
+        				key={feedItem.id.toString()} 
+                places={feed}                
                 currentUser={props.currentUser}
-                className={feedItem.type} />
+                className={feedItem.type} 
+                changeCurrentMapLocation={props.changeCurrentMapLocation}/>
 		);
 	});
 

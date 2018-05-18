@@ -16,7 +16,7 @@ class FeedItem extends Component {
 							<h5>{this.props.name}</h5>							
 							<h6>{this.props.contact}</h6>
 							<h6>{this.props.type}</h6>
-							<p>Visit <a href="#"><i className="glyphicon glyphicon-map-marker"></i></a></p>
+							<p>Visit <a href="#" onClick={this.props.changeCurrentMapLocation.bind(this, this.props.location)}><i className="glyphicon glyphicon-map-marker"></i></a></p>
 						</div>
 						<div className="container-fluid">
 							<div className="container-fluid">

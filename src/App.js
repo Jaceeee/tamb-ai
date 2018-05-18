@@ -15,7 +15,7 @@ class App extends Component {
     this.state = {
       displayState: 1,
       locationList: [],
-      currentLocation: { latitude: -1, longitude: -1 },
+      currentLocation: { lat: -1, lng: -1 },
       places: [],
       users: []
     }
@@ -25,6 +25,13 @@ class App extends Component {
     this.setState({
       ...this.state,
       displayState: newState
+    });
+  }
+
+  changeCurrentMapLocation(newLocation) {        
+    this.setState({
+      ...this.state,
+      currentLocation: newLocation
     });
   }
 
@@ -59,6 +66,7 @@ class App extends Component {
       <div className="main">
         <LogSwitcher displayState={this.state.displayState}
                      changeDisplayState={this.changeDisplayState.bind(this)}
+                     changeCurrentMapLocation={this.changeCurrentMapLocation.bind(this)}
                      places = {this.state.places} 
                      currentLocation = {this.state.currentLocation}
                      users = {this.state.users} />        
@@ -83,8 +91,9 @@ const LogSwitcher = (props) => {
           <br />
           <LeftNav />
           <Feed places = {props.places} 
-                users = {props.users} />
-          <RightNav currentLocation = {props.currentLocation}/>  
+                users = {props.users}                 
+                changeCurrentMapLocation = {props.changeCurrentMapLocation}/>
+          <RightNav currentLocation = {props.currentLocation}/> 
         </div>
       )
   }
