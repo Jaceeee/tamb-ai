@@ -7,10 +7,7 @@ import Feed from './components/Feed';
 import {firebase} from './firebase';
 import { Grid, Row } from 'react-bootstrap';
 
-
-
 const base = firebase.base;
-
 
 class App extends Component {    
   constructor() {
