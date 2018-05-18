@@ -16,7 +16,6 @@ class Feed extends Component {
 	}	
 
 	render () {			
-		console.log(this.props);
 		return (
 			<div className="col-sm-7" style={{backgroundColor: "lavenderblush", position: "relative", top: "10px"}}>
 				<FeedsList  places={this.props.places} // naa diri ang location
