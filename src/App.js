@@ -5,6 +5,9 @@ import LeftNav from './components/LeftNav';
 import RightNav from './components/RightNav';
 import Feed from './components/Feed';
 import {firebase} from './firebase';
+import { Grid, Row } from 'react-bootstrap';
+
+
 
 const base = firebase.base;
 
@@ -63,16 +66,15 @@ class App extends Component {
   }
 
   render() {            
-    return (      
+    return (  
       <div className="main">
         <LogSwitcher displayState={this.state.displayState}
                      changeDisplayState={this.changeDisplayState.bind(this)}
                      changeCurrentMapLocation={this.changeCurrentMapLocation.bind(this)}
                      places = {this.state.places} 
                      currentLocation = {this.state.currentLocation}
-                     users = {this.state.users} />        
-              
-      </div>      
+                     users = {this.state.users} />                        
+      </div>            
     );
   }
 }
@@ -86,18 +88,19 @@ const LogSwitcher = (props) => {
     case 1: 
     default:
       return (
-          <div>
-          <Header changeDisplayState={props.changeDisplayState}/>
-          <br />
-          <br />
-          <LeftNav />
-          <Feed places = {props.places} 
-                users = {props.users}                 
-                changeCurrentMapLocation = {props.changeCurrentMapLocation}/>
-          <RightNav currentLocation = {props.currentLocation}/> 
+        <div>
+          <Header changeDisplayState={props.changeDisplayState}/>                    
+          <Grid fluid={true}>
+            <Row>            
+              <LeftNav />
+              <Feed places = {props.places} 
+                    users = {props.users}                 
+                    changeCurrentMapLocation = {props.changeCurrentMapLocation}/>
+              <RightNav currentLocation = {props.currentLocation}/> 
+            </Row>
+          </Grid>
         </div>
       )
-  }
-  return null;
+  }  
 }
 export default App;

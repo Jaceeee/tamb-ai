@@ -1,65 +1,46 @@
 import React, { Component } from 'react';
+import { Col, PanelGroup, Panel, Button, Glyphicon, ListGroup, ListGroupItem } from 'react-bootstrap';
+import './MainPage.css';
 
 class LeftNav extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      open: false
+    };
+  }
 	render() {
 		return(
-			<div className="col-sm-2 leftdiv" style={{backgroundColor: "lavender", position: "relative", top: "35px"}}>        
-        <div className="panel-group">
-          <div className="panel panel-default">
-            <div className="panel-heading">
-              <div data-toggle="collapse" href="#categories">
-                <button className="btn btn-default panel-title categbtn" type="button" style={{backgroundColor: "transparent", border: "transparent"}}	>
-                  CATEGORIES
-                  <i className="glyphicon glyphicon-menu-down"></i>
-                </button>
-              </div>
-            </div>
-            <div id="categories" className="panel-collapse collapse">
-              <ul className="list-group">
-                <div className="form-group">
-                  <li className="list-group-item">
-                    <div className="checkbox">
-                      <label><input type="checkbox" value="" className="btn btn-default" />Adventure</label>
-                    </div>
-                  </li>
-                  <li className="list-group-item">
-                    <div className="checkbox">
-                      <label><input type="checkbox" value="" className="btn btn-default" />Food</label>
-                    </div>
-                  </li>
-                  <li className="list-group-item">
-                    <div className="checkbox">
-                      <label><input type="checkbox" value="" className="btn btn-default" />Romance</label>
-                    </div>
-                  </li>
-                  <li className="list-group-item">
-                    <div className="checkbox">
-                      <label><input type="checkbox" value="" className="btn btn-default" />Leisure</label>
-                    </div>
-                  </li>
-                  <li className="list-group-item">
-                    <div className="checkbox">
-                      <label><input type="checkbox" value="" className="btn btn-default" />Gaming</label>
-                    </div>
-                  </li>
-                </div>
-              </ul>
-              
-            </div>
-          </div>
-        </div>
-
-        <label>Price</label>
-        <form className="form-inline">
-          <div className="form-group">
-            <input type="number" value="" placeholder="Min" className="form-control" min="0" />
-            <input type="number" value="" placeholder="Max" className="form-control" min="0" />
-            <button className="btn btn-default" type="submit" style={{backgroundColor: "transparent", border: "transparent"}}>
-              <i className="glyphicon glyphicon-ok"></i>
-            </button>
-          </div>
-        </form>
-      </div>
+			<Col sm={2}>
+        <PanelGroup>
+          <Panel expanded={this.state.open}>
+            <Panel.Heading>
+              <Button onClick={() => this.setState({open: !this.state.open })} >
+                CATEGORIES
+                <Glyphicon glyph="menu-down" />
+              </Button>
+            </Panel.Heading>
+            <Panel.Collapse>
+              <ListGroup>
+                <ListGroupItem href="/" to="/">Adventure</ListGroupItem>
+              </ListGroup>
+              <ListGroup>
+                <ListGroupItem href="/" to="/">Food</ListGroupItem>
+              </ListGroup>
+              <ListGroup>
+                <ListGroupItem href="/" to="/">Romance</ListGroupItem>
+              </ListGroup>
+              <ListGroup>
+                <ListGroupItem href="/" to="/">Leisure</ListGroupItem>
+              </ListGroup>
+              <ListGroup>
+                <ListGroupItem href="/" to="/">Gaming</ListGroupItem>
+              </ListGroup>
+            </Panel.Collapse>
+          </Panel>
+        </PanelGroup>
+      </Col>
 		)
 	}
 }

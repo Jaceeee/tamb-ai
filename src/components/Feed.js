@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import FeedItem from '../containers/FeedItem';
+import { Col } from 'react-bootstrap';
+import './MainPage.css';
 
 class Feed extends Component {	
 	constructor() {
@@ -18,30 +20,29 @@ class Feed extends Component {
 	render () {			
 		console.log(this.props);
 		return (
-			<div className="col-sm-7" style={{backgroundColor: "lavenderblush", position: "relative", top: "10px"}}>
+			<Col sm={7}>				
 				<FeedsList  places={this.props.places} // naa diri ang location
                     users={this.props.users} 
                     currentUser={this.state.currentUser.first_name !== "" ? `${this.state.currentUser.first_name} ${this.state.currentUser.last_name}` : "Unknown"}
-                    changeCurrentMapLocation={this.props.changeCurrentMapLocation}/>	
-	   	</div>
-    )
+                    changeCurrentMapLocation={this.props.changeCurrentMapLocation} />		   	
+		  	</Col>
+    	)
 	}
 }
 
-function FeedsList(props) {
+function FeedsList(props) {	
 	const feed = props.places;	
 	const feedItems = feed.map((feedItem) => {    
 		return (
 			<FeedItem id={feedItem.id}
                 places={feed}
                 name={feedItem.placeName} 
-								contact={feedItem.contactNumber}
-								type={feedItem.type}
-								description={feedItem.description}
-								imageUrl={feedItem.imageUrl}
-        				location = {feedItem.location}
-        				key={feedItem.id.toString()} 
-                places={feed}                
+				contact={feedItem.contactNumber}
+				type={feedItem.type}
+				description={feedItem.description}
+				imageUrl={feedItem.imageUrl}
+        		location = {feedItem.location}
+        		key={feedItem.id.toString()}                 
                 currentUser={props.currentUser}
                 className={feedItem.type} 
                 changeCurrentMapLocation={props.changeCurrentMapLocation}/>

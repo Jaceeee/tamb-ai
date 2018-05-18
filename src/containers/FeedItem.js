@@ -1,23 +1,58 @@
 import React, {Component} from 'react';
-import Comments from './Comments.js';
+import { Jumbotron, Image, Tabs, Tab } from 'react-bootstrap';
+import CommentPage from '../components/CommentPage';
 
 class FeedItem extends Component {
-	render() {		
+	render() {	
+		
 		return (
 			<li style={{listStyleType: "none"}}>
-				<div className="container-fluid">
-					<div className="panel panel-default feed">
-						<div className="col-sm-1 profpic">
-							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Chocolate_Hills_overview.JPG/1200px-Chocolate_Hills_overview.JPG" 
-								className="img-responsive" 
-								alt={`${this.props.name}`}/>
-						</div>
-						<div className="col-sm-10 profname">
-							<h5>{this.props.name}</h5>							
-							<h6>{this.props.contact}</h6>
-							<h6>{this.props.type}</h6>
-							<p>Visit <a href="#" onClick={this.props.changeCurrentMapLocation.bind(this, this.props.location)}><i className="glyphicon glyphicon-map-marker"></i></a></p>
-						</div>
+				<Jumbotron>	
+					<div>
+						<a><h4>{this.props.name}</h4></a>
+					</div>
+					<div className="CaptionContainer">
+						<p className="PostCaption">{this.props.description}</p>
+					</div>
+					<div className="PostImage">
+						<Image src={this.props.imageUrl} responsive />
+					</div>
+					<div className="FeedTabs">
+						<Tabs defaultActiveKey={2} >
+							<Tab eventKey={1} title="Description">
+								<div className="DescriptionContainer">
+									<p>{this.props.description}</p>
+								</div>
+							</Tab>
+							<Tab eventKey={2} title="Comment">
+								<CommentPage />
+							</Tab>
+							<Tab eventKey={3} title="Rating">
+							</Tab>
+						</Tabs>
+					</div>						
+				</Jumbotron>
+			</li>
+		)
+	}
+}
+
+export default FeedItem;
+
+/*
+<div className="container-fluid">
+						<div className="panel panel-default feed">
+							<div className="col-sm-1 profpic">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Chocolate_Hills_overview.JPG/1200px-Chocolate_Hills_overview.JPG" 
+									className="img-responsive" 
+									alt={`${this.props.name}`}/>
+							</div>
+							<div className="col-sm-10 profname">
+								<h5>{this.props.name}</h5>							
+								<h6>{this.props.contact}</h6>
+								<h6>{this.props.type}</h6>
+								<p>Visit <a href="#" onClick={this.props.changeCurrentMapLocation.bind(this, this.props.location)}><i className="glyphicon glyphicon-map-marker"></i></a></p>
+							</div>
 						<div className="container-fluid">
 							<div className="container-fluid">
 								<div className="panel panel-default posting">
@@ -65,9 +100,4 @@ class FeedItem extends Component {
 					</div>						
 					<br />
 				</div>
-			</li>
-		)
-	}
-}
-
-export default FeedItem;
+*/
