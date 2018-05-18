@@ -22,6 +22,7 @@ class App extends Component {
   }
 
   changeDisplayState(newState) {
+    console.log()
     this.setState({
       ...this.state,
       displayState: newState

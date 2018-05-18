@@ -1,4 +1,4 @@
-	import React, {Component} from 'react';
+import React, {Component} from 'react';
 import Comments from './Comments.js';
 
 class FeedItem extends Component {
