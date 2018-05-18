@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import apiKey from '../../api/api.js';
 
 class Maps extends Component {
     
@@ -8,13 +9,7 @@ class Maps extends Component {
     }
     
     render() {		
-        let mapsItems;
-        /*if(this.props.maps) {
-            mapsItems = this.props.maps.map(maps => {
-                return (
-                    //<MapsItem key = {}
-                );
-            });*/
+        
         }
     
         return (
