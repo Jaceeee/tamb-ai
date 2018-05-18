@@ -90,15 +90,10 @@ const LogSwitcher = (props) => {
           <br />
           <br />
           <LeftNav />
-<<<<<<< HEAD
-          <Feed />         
-          <RightNav />  
-=======
           <Feed places = {props.places} 
                 users = {props.users}                 
                 changeCurrentMapLocation = {props.changeCurrentMapLocation}/>
           <RightNav currentLocation = {props.currentLocation}/> 
->>>>>>> master
         </div>
       )
   }
