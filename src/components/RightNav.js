@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+<<<<<<< Updated upstream
 
 <<<<<<< HEAD
+=======
+import Maps from '../containers/Maps';
+>>>>>>> Stashed changes
 
 class RightNav extends Component {
 	render() {
@@ -13,9 +17,9 @@ class RightNav extends Component {
                         </div>
                     </div>
                 </div>
+            
+                <Maps />
             </div>
-            
-            
         )
 =======
 class RightNav extends Component {	
