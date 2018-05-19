@@ -5,7 +5,7 @@ class RightNav extends Component {
 	render() {				
 		return(
 			<div>	
-				Loading...		
+				Loading...
 			</div>
 		)
 	}
