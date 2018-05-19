@@ -12,7 +12,8 @@ export default class CommentPage extends Component {
                             <Image src="http://placekitten.com/50/50" circle responsive/>
                         </div>
                         <div className="CommentText">
-                            <p><span className="CommenterName">John Caesar Patac</span>Hello! This is a sample comment.</p><div className="DateSubText">on May 9, 2018</div>
+                            <p><a className="CommenterName">John Caesar Patac</a>Hello! This is a sample comment.</p>
+                            <div className="DateSubText">on May 9, 2018</div>
                         </div>
                     </li>
                 </ul>
