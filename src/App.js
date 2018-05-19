@@ -4,7 +4,7 @@ import Header from './components/Header';
 import LeftNav from './components/LeftNav';
 import RightNav from './components/RightNav';
 import Feed from './components/Feed';
-import {firebase} from './firebase';
+import { firebase } from './firebase';
 import { Grid, Row } from 'react-bootstrap';
 
 const base = firebase.base;
@@ -13,7 +13,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      displayState: 1,
+      displayState: 0,
       locationList: [],
       currentLocation: { lat: -1, lng: -1 },
       places: [],

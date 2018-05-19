@@ -1,53 +1,70 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'; 
+import { BrowserRouter as Router, Route, } from 'react-router-dom';
+
+import Navigation from './Navigation';
+import LandingPage from './Landing';
+import SignUpPage from './SignUp';
+import SignInPage from './SignIn';
+import PasswordForgetPage from './PasswordForget';
+import HomePage from './Home';
+import AccountPage from './Account';
+
+import * as routes from '../constants/routes';
 import { firebase } from '../firebase';
 
-const { base } = firebase;
-
 class Login extends Component {
-	componentWillMount() {
-		this.usersRefs = base.syncState('users', {
-			context: this,
-			state: 'users'
-		});
-	}
+  constructor(props) {
+    super(props);
 
-	componentWillUnmount() {
-		base.removeBinding(this.usersRefs);
-	}
+    this.state = {
+      authUser: null,
+    };
+  }
 
-	login(e) {
-		const { username, password } = this.refs;
+  componentDidMount() {
+    firebase.auth.onAuthStateChanged(authUser => {
+      authUser
+        ? this.setState(() => ({ authUser }))
+        : this.setState(() => ({ authUser: null }));
+    });
+  }
 
-		const users = this.state.users;
+  render() {
+    return(
+      <Router>
+       <div>
+        <Navigation authUser={this.state.authUser} />
+          
+          <hr/>
 
-		if(username.value !== "" && password !== "") {
-			for(let i = 0; i < users.length; i++) {
-				if(users[i].userName === username.value && users[i].password === password.value) {
-					this.props.changeDisplayState(1);
-				}
-			}
-		}
-		else {
-			alert("invalid values for username or password");
-		}
-		e.preventDefault();
-	}
-
-	render() {
-		return (
-			<div>
-				<form onSubmit={this.login.bind(this)}>
-					<h1>Username</h1>
-					<input ref="username" type="text" />
-					<h1>Password</h1>
-					<input ref="password" type="password" />
-					<br />
-					<button className="btn btn-primary">Login</button>
-				</form>
-			</div>
-		)
-	}
+          <Route
+            exact path={routes.LANDING}
+            component={() => <LandingPage />}
+          />
+          <Route
+            exact path={routes.SIGN_UP}
+            component={() => <SignUpPage />}
+          />
+          <Route
+            exact path={routes.SIGN_IN}
+            component={() => <SignInPage />}
+          />
+          <Route
+            exact path={routes.PASSWORD_FORGET}
+            component={() => <PasswordForgetPage />}
+          />
+          <Route
+            exact path={routes.HOME}
+            component={() => <HomePage />}
+          />
+          <Route
+            exact path={routes.ACCOUNT}
+            component={() => <AccountPage />}
+          />
+        </div>
+      </Router>
+    );
+  }
 }
-
 
 export default Login;

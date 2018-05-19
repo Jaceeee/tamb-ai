@@ -1,0 +1,89 @@
+{
+  "comments" : [ {
+    "commenter_id" : 0,
+    "body" : "This is a beautiful place.",
+    "id" : 0,
+    "place_id" : 0
+  }, {
+    "commenter_id" : 0,
+    "body" : "Aie jowk bati diay",
+    "id" : 1,
+    "place_id" : 0
+  }, {
+    "commenter_id" : 2,
+    "body" : "This is a beautiful place.",
+    "id" : 2,
+    "place_id" : 0
+  } ],
+  "places" : [ {
+    "description" : "A religious site of the taoists.",
+    "id" : 0,
+    "location" : {
+      "lat" : 0,
+      "lng" : 0
+    },
+    "placeName" : "Taoist Temple",
+    "owner_id" : 0,
+    "type" : "Religious",
+    "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/f/f0/Taoist_Temple%2C_Cebu%2C_Philippines.jpg"
+  }, {
+    "description" : "Tambayanan for tambays",
+    "id" : 1,
+    "location" : {
+      "lat" : 1,
+      "lng" : 1
+    },
+    "placeName" : "Osmeña Peak",
+    "owner_id" : 1,
+    "type" : "Tambay2",
+    "imageUrl" : "http://soloflighted.com/wp-content/uploads/2011/12/peak-osmena.jpg"
+
+  }, {
+    "description" : "lorem ipsum dolor",
+    "id" : 2,
+    "location" : {
+      "lat" : 2,
+      "lng" : 2
+    },
+    "placeName" : "University of the Philippines",
+    "owner_id" : 2,
+    "type" : "Graveyard",
+    "imageUrl" : "https://thesentrycebu.files.wordpress.com/2013/10/page4c.jpg"
+  } ],
+  "ratings" : [ {
+    "id" : 0,
+    "place_id" : 0,
+    "rate_value" : 4,
+    "rater_id" : 0,
+    "text" : "gwapo ko"
+  } ],
+  "users" : [ {
+    "email" : "loewe.alivio@gmail.com",
+    "firstName" : "Michael Loewe",
+    "id" : 0,
+    "lastName" : "Alivio",
+    "userName" : "loyloychoi",
+    "password" : "malivio"
+  }, {
+    "email" : "jace.roldan@gmail.com",
+    "firstName" : "Juan Carlos",
+    "id" : 1,
+    "lastName" : "Roldan",
+    "userName" : "jisu",
+    "password" : "jroldan"
+  }, {
+    "email" : "paul@gmail.com",
+    "firstName" : "Paul Christian",
+    "id" : 2,
+    "lastName" : "Kiunisala",
+    "userName" : "pooru",
+    "password" : "pkiunisala"
+  }, {
+    "email" : "johncaesarpatac@gmail.com",
+    "firstName" : "Caesar",
+    "id" : 3,
+    "lastName" : "Patac", 
+    "userName" : "johncaesarpatac",
+    "password" : "gepetralba"
+  } ]
+}
