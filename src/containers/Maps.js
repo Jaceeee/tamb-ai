@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { compose, withProps, lifecycle } from 'recompose';
-import { withScriptjs, withGoogleMap, GoogleMap, Marker, DirectionsRenderer } from "react-google-maps";
+import { withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer } from "react-google-maps";
 
-            
+var dest = {
+    latitude: 10.3186,
+    longitude: 123.9005
+}    
+
 const MapWithADirectionsRenderer = compose(
     withProps({
         googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCO3b5rD3tihXWtAHp_R6GD35qsj9OC4r8&v=3.exp&libraries=geometry,drawing,places",
@@ -26,18 +30,21 @@ const MapWithADirectionsRenderer = compose(
                         originlng = position.coords.longitude;
                         error = null;
 
-                        DirectionsService.route({
+                        DirectionsService.route(
+                        {
                             origin: new google.maps.LatLng(originlat, originlng),
-                            destination: new google.maps.LatLng(10.3186, 123.9005),
+                            destination: new google.maps.LatLng(dest.latitude, dest.longitude),
                             travelMode: google.maps.TravelMode.DRIVING,
+                        
                         }, (result, status) => {
                             if (status === google.maps.DirectionsStatus.OK) {
-                            this.setState({
-                                directions: result,
-                            });
+                                this.setState({
+                                    directions: result,
+                                });
                             } else {
-                            console.error(`error fetching directions ${result}`);
+                                console.error(`error fetching directions ${result}`);
                             }
+                        
                         });
                     },
                     (error) => error = error.message,
@@ -48,23 +55,24 @@ const MapWithADirectionsRenderer = compose(
     )(props =>
     <GoogleMap
         defaultZoom={7}
-        defaultCenter= {{lat: -34.397, lng: 150.644}} //{new google.maps.LatLng(41.8507300, -87.6512600)}
+        defaultCenter= {{lat: -34.397, lng: 150.644}} 
     >
         {props.directions && <DirectionsRenderer directions={props.directions} />}
     </GoogleMap>
+    
 );
-
-function DirectionsWrapper(props) {
-
-
-}
-
-
 
 class Maps extends Component {    
    
-    render() {
+    componentDidUpdate() {
+        dest.latitude = this.props.location.latitude;
+        dest.longitude = this.props.location.longitude;       
 
+        console.log(dest.latitude + " this is dest latitude");
+        console.log(dest.longitude + " this is dest longitude");
+    }
+
+    render() {
         return (
             <MapWithADirectionsRenderer />
         )

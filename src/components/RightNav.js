@@ -9,9 +9,8 @@ class RightNav extends Component {
 		if(!this.props.loaded) {
 			return (
 				<div className="col-lg-2">
-					<Maps />
+					<Maps location={this.props.currentLocation}/>
 				</div>
-				// <div> ...Loaded</div>
 			)
 		}
 		return(
