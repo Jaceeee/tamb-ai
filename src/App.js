@@ -13,7 +13,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      displayState: 0,
+      displayState: 1,
       locationList: [],
       currentLocation: { lat: -1, lng: -1 },
       places: [],
@@ -22,7 +22,6 @@ class App extends Component {
   }
 
   changeDisplayState(newState) {
-    console.log()
     this.setState({
       ...this.state,
       displayState: newState
