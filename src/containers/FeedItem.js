@@ -4,7 +4,6 @@ import Comment from '../components/Comment';
 
 class FeedItem extends Component {
 	render() {	
-		
 		return (
 			<li style={{listStyleType: "none"}}>
 				<Jumbotron>	

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "firebase": "4.13.1",
+    "google-maps-react": "^2.0.2",
     "mongodb": "3.0.6",
     "natural": "0.6.0",
     "re-base": "^3.2.2",
