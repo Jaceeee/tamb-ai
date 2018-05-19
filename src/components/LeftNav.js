@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Col, PanelGroup, Panel, Button, Glyphicon, ListGroup, ListGroupItem } from 'react-bootstrap';
-import './MainPage.css';
+import '../stylesheets/MainPage.css';
 
 class LeftNav extends Component {
   constructor() {

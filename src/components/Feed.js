@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FeedItem from '../containers/FeedItem';
 import { Col } from 'react-bootstrap';
-import './MainPage.css';
+import '../stylesheets/MainPage.css';
 
 class Feed extends Component {	
 	constructor() {
@@ -17,8 +17,7 @@ class Feed extends Component {
 		}		
 	}	
 
-	render () {			
-		console.log(this.props);
+	render () {					
 		return (
 			<Col sm={7}>				
 				<FeedsList  places={this.props.places} // naa diri ang location

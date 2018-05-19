@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Image, FormGroup, FormControl } from 'react-bootstrap';
-import './CommentPage.css';
+import '../stylesheets/CommentPage.css';
 
 export default class CommentPage extends Component {
     render() {

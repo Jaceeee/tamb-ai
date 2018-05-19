@@ -2,15 +2,20 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import { SignUpLink } from './SignUp';
-import { auth } from '../firebase';
-import * as routes from '../constants/routes';
+import { auth } from '../../firebase';
+import * as routes from '../../constants/routes';
+
+import { Row, Col, Button, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
 const SignInPage = ({ history }) =>
-  <div>
-    <h1>LOGIN</h1>
-    <SignInForm history={history} />
-    <SignUpLink />
-  </div>
+  <Row>
+    <Col xs={3}></Col>
+    <Col xs={6}>
+      <h1>LOGIN</h1>
+      <SignInForm history={history} />
+      <SignUpLink />
+    </Col>  
+  </Row>
 
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value,
@@ -51,7 +56,7 @@ class SignInForm extends Component {
     event.preventDefault();
   }
 
-  render() {
+  render() {    
     const {
       email,
       password,
@@ -63,24 +68,33 @@ class SignInForm extends Component {
       email === '';
 
     return (
+      
       <form onSubmit={this.onSubmit}>
-        <input
-          value={email}
-          onChange={event => this.setState(byPropKey('email', event.target.value))}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          value={password}
-          onChange={event => this.setState(byPropKey('password', event.target.value))}
-          type="password"
-          placeholder="Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign In
-        </button>
+        <FormGroup>
+          <ControlLabel>Email</ControlLabel>
+          <FormControl
+            type="text"
+            placeholder="Enter text"
+            value={email}
+            onChange={event => this.setState(byPropKey('email', event.target.value))}
+          />          
+          <br />
 
-        { error && <p>{error.message}</p> }
+          <ControlLabel>Password</ControlLabel>
+          <FormControl
+            type="password"
+            placeholder="Enter password"
+            value={password}
+            onChange={event => this.setState(byPropKey('password', event.target.value))}
+          />          
+          <br />
+
+          <Button disabled={isInvalid} type="submit" bsStyle="success">
+            Sign In
+          </Button>
+          { error && <p>{error.message}</p> }
+          
+        </FormGroup>
       </form>
     );
   }

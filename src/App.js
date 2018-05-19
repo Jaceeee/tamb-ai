@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Login from './components/Login';
+import Login from './components/user_management/Login';
 import Header from './components/Header';
 import LeftNav from './components/LeftNav';
 import RightNav from './components/RightNav';
@@ -13,7 +13,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      displayState: 1,
+      displayState: 0,
       locationList: [],
       currentLocation: { lat: -1, lng: -1 },
       places: [],
@@ -79,7 +79,11 @@ const LogSwitcher = (props) => {
   switch(props.displayState) {
     case 0:
       return  (
-        <Login changeDisplayState={props.changeDisplayState}/>
+        <Login changeDisplayState={props.changeDisplayState}
+               places={props.places}
+               users={props.users}
+               changeCurrentMapLocation={props.changeCurrentMapLocation}
+               currentLocation={props.currentLocation}/>
       )
     case 1: 
     default:

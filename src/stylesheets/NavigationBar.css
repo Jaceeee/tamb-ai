@@ -1,0 +1,14 @@
+Navbar {
+    padding-left: 0 !important;
+    color: red;
+}
+
+.HeaderLinks a, .HeaderLinks{	
+	color: black;
+	
+}
+
+Button.HeaderLinks {
+	position: relative;	
+	top: 5px;
+}
