@@ -1,9 +1,0 @@
-.star-rating {
-  line-height: 0.6vh;
-  font-size: 2em;
-  z-index: -1;
-  margin-top: -5vh;
-  margin-left: 10vw;
-}
-
-.star-rating .fa-star{color: yellow;}
