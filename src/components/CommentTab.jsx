@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Image, FormGroup, FormControl } from 'react-bootstrap';
-import './CommentPage.css';
+import './CommenTab.css';
 
 export default class CommentPage extends Component {
     render() {
@@ -12,7 +12,7 @@ export default class CommentPage extends Component {
                             <Image src="http://placekitten.com/50/50" circle responsive/>
                         </div>
                         <div className="CommentText">
-                            <p><a className="CommenterName">John Caesar Patac</a>Hello! This is a sample comment.</p>
+                            <p><a className="CommenterName">John Caesar Patac</a>Hello! This is a sample comment. This is a sample comment. This is a sample comment.This is a sample comment.</p>
                             <div className="DateSubText">on May 9, 2018</div>
                         </div>
                     </li>
@@ -23,7 +23,6 @@ export default class CommentPage extends Component {
                     </FormGroup>
                 </form>
             </div>
-
         )
     }
 }

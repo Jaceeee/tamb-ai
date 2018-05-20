@@ -1,4 +1,10 @@
-Navbar {
-    padding-left: 0 !important;
-    color: blue;
+.navbar-default {
+    padding: 0 !important;
+    background-color: #C9F0FF;
+    /*background-color: #c0dfd9;*/
+    /*border-bottom: solid thin #284B63;*/
+}
+
+.nav>.nav-items {
+    background-color: pink !important;
 }

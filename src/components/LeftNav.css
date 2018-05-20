@@ -1,0 +1,48 @@
+.LeftPanel {
+    margin-top: 10vh;
+    /*background-color: black;*/
+    height: 75vh;
+    margin-right: -3.5vh;
+    position: fixed;
+}
+
+.Profile {
+    /*background-color: pink;*/
+    min-height: 6vh;
+    max-height: 10vh;
+    width: 16vw;
+    margin-bottom: 2vh;
+}
+
+.Profile>img {
+    /*width: 3vw !important;*/
+    width: 18%;
+}
+
+.Profile>div {
+    margin-left: 4vw;
+    margin-top: -4vh !important;
+}
+
+.LinkContainer {
+    background-color: #e3e3e3;
+    /*background-color: transparent;*/
+    max-height: 40vh;
+    /*margin-top: 10vh;*/
+    margin-right: -2vw;
+    padding-top: 0.1vh;
+    padding-left: 0.5vw;
+    padding-bottom: 1vh;
+    overflow: auto;
+    width: 16vw;
+}
+
+.FPContainer {
+    /*background-color: white;*/
+    margin-bottom: 1vh;
+}
+
+.PlaceName {
+    font-size: 1em;
+    margin-bottom: -1vh;
+}

@@ -1,10 +1,28 @@
 import React, {Component} from 'react';
-import { Jumbotron, Image, Tabs, Tab } from 'react-bootstrap';
-import CommentPage from '../components/CommentPage';
+import { Jumbotron, Image, Tabs, Tab, Modal } from 'react-bootstrap';
+import RatingTab from '../components/RatingTab';
+import CommentTab from '../components/CommentTab';
+import DetailsTab from '../components/DetailsTab';
+
+//THIS IS A COMMENT
 
 class FeedItem extends Component {
-	render() {	
-		
+	constructor(props) {
+		super(props);
+        this.handleShow = this.handleShow.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+        this.state = { show: false };
+	}
+
+    handleClose() {
+        this.setState({ show: false });
+    }
+
+    handleShow() {
+        this.setState({ show: true });
+    }
+
+	render() {
 		return (
 			<li style={{listStyleType: "none"}}>
 				<Jumbotron>	
@@ -15,22 +33,24 @@ class FeedItem extends Component {
 						<p className="PostCaption">{this.props.description}</p>
 					</div>
 					<div className="PostImage">
-						<Image src={this.props.imageUrl} responsive />
+						<Image src={this.props.imageUrl} responsive onClick={this.handleShow} />
+						<Modal show={this.state.show} onHide={this.handleClose}>
+							<Image src={this.props.imageUrl} responsive />
+						</Modal>
 					</div>
 					<div className="FeedTabs">
-						<Tabs defaultActiveKey={2} >
-							<Tab eventKey={1} title="Description">
-								<div className="DescriptionContainer">
-									<p>{this.props.description}</p>
-								</div>
+						<Tabs defaultActiveKey={null} className="TabsContainer" >
+							<Tab eventKey={1} title="Rating">
+								<RatingTab />
 							</Tab>
 							<Tab eventKey={2} title="Comment">
-								<CommentPage />
+								<CommentTab />
 							</Tab>
-							<Tab eventKey={3} title="Rating">
+							<Tab eventKey={3} title="Details">
+								<DetailsTab />
 							</Tab>
 						</Tabs>
-					</div>						
+					</div>
 				</Jumbotron>
 			</li>
 		)

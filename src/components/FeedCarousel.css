@@ -1,0 +1,45 @@
+.CarouselContainer {
+    margin-top: 10vh;
+    margin-bottom: 3vh !important;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    min-height: 40vh !important;
+    max-height: 40vh !important;
+    /*width: 44.3vw !important;*/
+}
+
+.CarouselImage {
+    /*width: 55.5vw !important;*/
+    width: 100% !important;
+    height: 40vh !important;
+    margin: 0 !important;
+}
+
+.carousel-caption {
+    left: 3vw;
+    /*right: 10vw !important;*/
+    /*background-color: green;*/
+    text-align: left;
+    padding: 0;
+    bottom: 1vh;
+}
+
+.carousel-caption>h3 {
+    /*background-color: deeppink;*/
+    min-width: 10vw !important;
+}
+
+.carousel-caption>p {
+    font-weight: 400;
+}
+
+.carousel-indicators {
+    top: 1.5vw;
+    left: 4.5vw;
+}
+
+/*.CarouselContainer>.btn {*/
+/*!*margin-top: -5vh;*!*/
+/*float: right;*/
+/*margin-right: 7vw;*/
+/*}*/

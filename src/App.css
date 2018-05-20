@@ -1,0 +1,10 @@
+body {
+    font-family: 'Montserrat' !important;
+    font-weight: 500;
+    background-color: #EAFFFD;
+    /*background-color: #e9ece5;*/
+}
+
+.App {
+    text-align: center;
+}

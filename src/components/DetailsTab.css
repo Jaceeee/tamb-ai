@@ -1,0 +1,66 @@
+.DetailsContainer {
+    background-color: #e9ece5;
+    min-height: 5vh;
+    max-height: 29.5vh;
+    overflow: auto;
+    margin-left: -2.5vw;
+    margin-right: -2.5vw;
+    padding-top: 1vh;
+    padding-bottom: 2vh;
+    padding-left: 2.5vw;
+    /*padding-right: 2.5vw;*/
+    /*margin-top: 1.5vh;*/
+    /*margin-bottom: 2vh;*/
+}
+
+.DetailsContainer>p {
+    font-size: 1em;
+    font-weight: 300;
+}
+
+.Info {
+    /*background-color: red;*/
+    width: 50%;
+}
+
+.Info>p {
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+.PlaceSched {
+    /*background-color: orange;*/
+    padding-top: -1vh;
+    width: 50%;
+    float: right;
+    margin-top: -25vh;
+}
+
+.Days {
+    /*background-color: orange;*/
+    width: 30%;
+    /*float: right;*/
+    /*margin-top: -30vh;*/
+}
+
+.Time {
+    /*background-color: blue;*/
+    width: 70%;
+    float: right;
+    margin-top: -25vh;
+    padding-left: 2vw;
+}
+
+/*.Time>p {*/
+/*font-size: 1em;*/
+/*}*/
+
+.FeedCalendar {
+    /*width: 100% !important;*/
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.modal-body>p {
+    text-align: center;
+}
