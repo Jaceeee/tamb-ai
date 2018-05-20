@@ -11,11 +11,13 @@ const config = {
 };
 
 const app = firebase.initializeApp(config);
+const db = firebase.database();
 const base = Rebase.createClass(app.database());
 const auth = firebase.auth();
 
 
 export {
   auth,
-  base
+  base,
+  db
 };

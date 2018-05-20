@@ -49,7 +49,7 @@ class Login extends Component {
           />
           <Route
             exact path={routes.SIGN_UP}
-            component={() => <SignUpPage />}
+            component={() => <SignUpPage users={this.props.users}/>}
           />
           <Route
             exact path={routes.SIGN_IN}

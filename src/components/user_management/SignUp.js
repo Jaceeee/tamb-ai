@@ -4,22 +4,24 @@ import {
   withRouter,
 } from 'react-router-dom';
 
-import { auth } from '../../firebase';
+import { auth, db } from '../../firebase';
 import * as routes from '../../constants/routes';
 
 import { Row, Col, Button, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
-const SignUpPage = ({ history }) =>
+const SignUpPage = ({ history, users }) =>
   <Row>
     <Col xs={3} />
     <Col xs={6}>
       <h1>SignUp</h1>
-      <SignUpForm history={history}/>
+      <SignUpForm history={history} users={users}/>
     </Col>
   </Row>
 
 const INITIAL_STATE = {
-  username: '',
+  firstName: '',
+  lastName: '',
+  username: '', 
   email: '',
   passwordOne: '',
   passwordTwo: '',
@@ -39,6 +41,8 @@ class SignUpForm extends Component {
 
   onSubmit = (event) => {
     const {
+      firstName,
+      lastName,
       username,
       email,
       passwordOne,
@@ -50,8 +54,16 @@ class SignUpForm extends Component {
 
     auth.doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-        this.setState(() => ({ ...INITIAL_STATE }));
-        history.push(routes.HOME);
+
+        // Create a user in your own accessible Firebase Database too
+        db.doCreateUser(this.props.users.length, firstName, lastName, username, email)
+          .then(() => {
+            this.setState(() => ({ ...INITIAL_STATE}));
+            history.push(routes.HOME);
+          })
+          .catch(error => {
+            this.setState(byPropKey('error', error))
+          })
       })
       .catch(error => {
         this.setState(byPropKey('error', error));
@@ -62,6 +74,8 @@ class SignUpForm extends Component {
 
   render() {
     const {
+      firstName,
+      lastName,
       username,
       email,
       passwordOne,
@@ -71,6 +85,8 @@ class SignUpForm extends Component {
 
     const isInvalid =
       passwordOne !== passwordTwo ||
+      firstName === '' ||
+      lastName === '' ||
       passwordOne === '' ||
       email === '' ||
       username === '';
@@ -78,6 +94,24 @@ class SignUpForm extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <FormGroup>
+
+          <ControlLabel>First Name</ControlLabel>
+          <FormControl
+            value={firstName}
+            onChange={event => this.setState(byPropKey('firstName', event.target.value))}
+            type="text"
+            placeholder="First Name"
+          />
+          <br />     
+
+          <ControlLabel>Last Name</ControlLabel>
+          <FormControl
+            value={lastName}
+            onChange={event => this.setState(byPropKey('lastName', event.target.value))}
+            type="text"
+            placeholder="Last Name"
+          />
+          <br />     
 
           <ControlLabel>Username</ControlLabel>
           <FormControl
