@@ -6,17 +6,28 @@ import { PasswordForgetLink } from './PasswordForget';
 import { auth } from '../../firebase';
 import * as routes from '../../constants/routes';
 
-import { Row, Col, Button, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+import { Row, Col, Button, FormGroup, FormControl, Glyphicon } from 'react-bootstrap';
+
+import '../../stylesheets/SignIn.css';
 
 const SignInPage = ({ history }) =>
   <Row>
-    <Col xs={3}></Col>
-    <Col xs={6}>
-      <h1>LOGIN</h1>
-      <SignInForm history={history} />
-      <PasswordForgetLink />
-      <SignUpLink />
-    </Col>  
+    <Col sm={12} className="LandingPage">
+      <div className="SignContainer">
+        <div className="ContainerTitle">
+          <h3>LOGIN</h3>
+          <p>Enter email and password to login</p>
+          <Glyphicon glyph="lock" />
+        </div>
+        <div className="FormContainer">
+          <SignInForm history={history} />
+        </div>
+        <div className="SignFooter">
+          <PasswordForgetLink />
+          <SignUpLink />
+        </div>
+      </div>
+    </Col>
   </Row>
 
 const byPropKey = (propertyName, value) => () => ({
@@ -73,25 +84,21 @@ class SignInForm extends Component {
       
       <form onSubmit={this.onSubmit}>
         <FormGroup>
-          <ControlLabel>Email</ControlLabel>
-          <FormControl
-            type="text"
-            placeholder="Enter text"
-            value={email}
-            onChange={event => this.setState(byPropKey('email', event.target.value))}
-          />          
-          <br />
+          {/*<ControlLabel>Email</ControlLabel>*/}
+          <FormControl type="text" placeholder="Enter email" value={email} onChange={event => this.setState(byPropKey('email', event.target.value))} className="LoginForm"/>
+          {/*<br />*/}
 
-          <ControlLabel>Password</ControlLabel>
+          {/*<ControlLabel>Password</ControlLabel>*/}
           <FormControl
             type="password"
             placeholder="Enter password"
             value={password}
             onChange={event => this.setState(byPropKey('password', event.target.value))}
+            className="LoginForm"
           />          
           <br />
 
-          <Button disabled={isInvalid} type="submit" bsStyle="success">
+          <Button disabled={isInvalid} type="submit" bsStyle="success" className="LoginButton">
             Sign In
           </Button>
           { error && <p>{error.message}</p> }

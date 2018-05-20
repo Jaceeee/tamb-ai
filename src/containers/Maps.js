@@ -50,6 +50,7 @@ const MapWithADirectionsRenderer = compose(
       defaultZoom={props.defaultZoom}
       defaultCenter= {props.defaultCenter} //{new google.maps.LatLng(41.8507300, -87.6512600)}
   >
+    <Marker position={props.defaultCenter} />
     {props.directions && <DirectionsRenderer directions={props.directions} />}
   </GoogleMap>
 );
@@ -90,7 +91,7 @@ class Maps extends Component {
                       directions: result,
                   });
                   } else {
-                  console.error(`error fetching directions ${result}`);
+                    console.error(`error fetching directions ${result}`);
                   }
               });
           },

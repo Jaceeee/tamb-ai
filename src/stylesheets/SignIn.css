@@ -1,0 +1,72 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.LandingPage {
+    background: linear-gradient(rgba(237, 243, 255, 0.3), rgba(237, 243, 255, 0.3)), url("https://starkaerospace.com/wp-content/uploads/2014/06/background-world-map-1.gif");
+    height: 99.5vh !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.SignContainer {
+    background-color: #CDF3FF;
+    width: 35vw;
+    height: 50vh;
+    padding: 0 !important;
+    margin-top: 15vh;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.ContainerTitle {
+    background-color: #9ddbf9;
+    height: 27%;
+    padding-left: 1vw;
+    padding-top: 0.1vh;
+    opacity: 0.8;
+}
+
+.ContainerTitle>h3 {
+    font-weight: 400;
+}
+
+.ContainerTitle>p {
+    font-weight: 300;
+}
+
+.ContainerTitle>.glyphicon {
+    float: right;
+    margin-top: -9vh;
+    margin-right: 1vw;
+    font-size: 3em;
+    color: #EDF3FF;
+    opacity: 0.7;
+}
+
+.LoginForm {
+    margin-top: 1.5vh;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+.LoginButton {
+    width: 95%;
+    margin-left: 0.9vw;
+    margin-top: -1.5vh;
+    color: black;
+}
+
+.SignFooter {
+    /*background-color: wheat;*/
+    padding-left: 1.2vw;
+}

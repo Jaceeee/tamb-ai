@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Navbar, Nav, FormControl, FormGroup, Button, Glyphicon, NavDropdown, MenuItem, NavItem } from 'react-bootstrap';
 import '../stylesheets/Header.css';
 
-class Header extends Component {	
+class Header extends Component {
 	render() {
 		return (
 			<Navbar collapseOnSelect fixedTop>

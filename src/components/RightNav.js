@@ -5,17 +5,12 @@ import '../stylesheets/RightNav.css';
 
 class RightNav extends Component {	
 	render() {		
-		if(!this.props.loaded) {
-			return (
-				<Col sm={4}>
-					<Maps focus={this.props.currentLocation}/>
-				</Col>
-			)
-		}
 		return(
-			<div>			
-				<Maps />
-			</div>
+			<Col sm={4}>
+				<div className="RightPanel">
+					<Maps focus={this.props.currentLocation}/>
+				</div>
+			</Col>
 		)
 	}
 }

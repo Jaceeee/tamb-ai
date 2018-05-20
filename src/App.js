@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Login from './components/user_management/Login';
-import Header from './components/Header';
-import LeftNav from './components/LeftNav';
-import RightNav from './components/RightNav';
-import Feed from './components/Feed';
+// import Header from './components/Header';
+// import LeftNav from './components/LeftNav';
+// import RightNav from './components/RightNav';
+// import Feed from './components/Feed';
 import { firebase } from './firebase';
-import { Grid, Row } from 'react-bootstrap';
+// import { Grid, Row } from 'react-bootstrap';
 import './App.css';
 
 const base = firebase.base;
@@ -16,7 +16,7 @@ class App extends Component {
     this.state = {
       displayState: 0,
       locationList: [],
-      currentLocation: { lat: -1, lng: -1 },
+      currentLocation: { lat: 10.3231372, lng: 123.8988388 },
       places: [],
       users: [],
       ratings: [],
@@ -34,8 +34,9 @@ class App extends Component {
   changeCurrentMapLocation(newLocation) {        
     this.setState({
       ...this.state,
-      currentLocation: newLocation
+      currentLocation: {lat: newLocation.latitude, lng: newLocation.longitude }
     });
+    // console.log("Hello");
   }
 
   addComment(currentUserId, placeId, comment) {
@@ -87,50 +88,17 @@ class App extends Component {
     console.log(this.state);
     return (  
       <div>
-        <Login       displayState={this.state.displayState}
-                     changeDisplayState={this.changeDisplayState.bind(this)}
-                     changeCurrentMapLocation={this.changeCurrentMapLocation.bind(this)}
-                     places = {this.state.places} 
-                     currentLocation = {this.state.currentLocation}
-                     users = {this.state.users} 
-                     comments={this.state.comments}
-                     ratings={this.state.ratings}
-                     addComment={this.addComment.bind(this)}/>                        
+        <Login  changeDisplayState={this.changeDisplayState.bind(this)}
+                changeCurrentMapLocation={this.changeCurrentMapLocation.bind(this)}
+                places = {this.state.places}
+                currentLocation = {this.state.currentLocation}
+                users = {this.state.users}
+                comments={this.state.comments}
+                ratings={this.state.ratings}
+                addComment={this.addComment.bind(this)}/>
       </div>            
     );
   }
 }
 
-const LogSwitcher = (props) => {
-  switch(props.displayState) {
-    case 0:
-      return  (
-        <Login changeDisplayState={props.changeDisplayState}
-               places={props.places}
-               users={props.users}
-               comments={props.comments}
-               ratings={props.ratings}
-               changeCurrentMapLocation={props.changeCurrentMapLocation}
-               currentLocation={props.currentLocation}
-               addComment={props.addComment}/>
-      )
-    case 1: 
-    default:
-      return (
-        <div>
-          <Header changeDisplayState={props.changeDisplayState}/>                    
-          <Grid fluid={true}>
-            <Row className="show-grid">
-              <LeftNav />
-              <Feed places = {props.places} 
-                    users = {props.users}                 
-                    changeCurrentMapLocation = {props.changeCurrentMapLocation}
-                    addComment={props.addComment}/>
-              <RightNav currentLocation = {props.currentLocation}/> 
-            </Row>
-          </Grid>
-        </div>
-      )
-  }  
-}
 export default App;

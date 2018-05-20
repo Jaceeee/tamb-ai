@@ -10,9 +10,9 @@ const SignOutButton = () =>
   <Glyphicon    
     onClick={auth.doSignOut}
     glyph="log-out"
-    className="ControlItem HeaderLinks"
+    className="ControlItem"
   >
-    Sign Out
+    Logout
   </Glyphicon>
 
 export default SignOutButton;
