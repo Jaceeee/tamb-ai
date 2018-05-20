@@ -35,7 +35,7 @@ function FeedsList(props) {
 		return (
 			<FeedItem id={feedItem.id}
                 places={feed}
-                name={feedItem.placeName} 
+                name={feedItem.name} 
 				contact={feedItem.contactNumber}
 				type={feedItem.type}
 				description={feedItem.description}

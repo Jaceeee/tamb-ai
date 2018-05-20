@@ -37,16 +37,16 @@ const Navigation = ({ authUser }) =>
 
 const NavigationAuth = () =>
   <ButtonGroup>
-    <Button bsStyle="info" className="HeaderLinks"><Link to={routes.LANDING}>Landing</Link></Button>
-    <Button bsStyle="primary" className="HeaderLinks"><Link to={routes.HOME}>Home</Link></Button>
-    <Button bsStyle="warning" className="HeaderLinks"><Link to={routes.ACCOUNT}>Account</Link></Button>    
+    <Link to={routes.LANDING}><Button bsStyle="info" className="HeaderLinks">Landing</Button></Link>
+    <Link to={routes.HOME}><Button bsStyle="primary" className="HeaderLinks">Home</Button></Link>
+    <Link to={routes.ACCOUNT}><Button bsStyle="warning" className="HeaderLinks">Account</Button></Link>
     <SignOutButton className="HeaderLinks"/>
   </ButtonGroup>
 
 const NavigationNonAuth = () =>
   <ButtonGroup>
-    <Button bsStyle="default" className="HeaderLinks"><Link to={routes.LANDING}>Landing</Link></Button>
-    <Button bsStyle="warning" className="HeaderLinks"><Link to={routes.SIGN_IN}>Sign In</Link></Button>
+    <Link to={routes.LANDING}><Button bsStyle="default" className="HeaderLinks">Landing</Button></Link>
+    <Link to={routes.SIGN_IN}><Button bsStyle="warning" className="HeaderLinks">Sign In</Button></Link>
   </ButtonGroup>
 
 export default Navigation;

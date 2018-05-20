@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
-import '../stylesheets/MainPage.css';
+import Maps from '../containers/Maps';
 
 class RightNav extends Component {	
-	render() {				
+	render() {
+		// console.log("Yo");
+		// console.log(this.props);
+		// console.log("Yo");
+		if(!this.props.loaded) {
+			return (
+				<div className="col-lg-2">
+					<Maps />
+				</div>
+				// <div> ...Loaded</div>
+			)
+		}
 		return(
-			<div>	
-				Loading...
+			<div>			
 			</div>
 		)
 	}
