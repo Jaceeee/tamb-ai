@@ -4,13 +4,12 @@ import ReactStars from 'react-stars';
 import '../stylesheets/LeftNav.css';
 
 class LeftNav extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      open: false
-    };
-  }
+      constructor() {
+        super();
+        this.state = {
+          open: false
+       };
+    }
 	render() {
         let currentUser = { id: -1 } ;
         

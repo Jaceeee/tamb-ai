@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+import Navigation from './Navigation';
 import LeftNav from '../LeftNav';
 import RightNav from '../RightNav';
 import Feed from '../Feed';
@@ -28,9 +29,15 @@ class Home extends Component {
 	render(){
 		if(this.props.authUser){
 			return(
-				<Row>            
-					<LeftNav currentUser={this.props.authUser}
-					         users={this.props.users}/>
+				<Row>
+					<Navigation/>
+					<LeftNav places={this.props.places}
+							 users={this.props.users}
+							 comments={this.props.comments}
+							 ratings={this.props.ratings}
+							 changeCurrentMapLocation={this.props.changeCurrentMapLocation}
+							 addComment={this.props.addComment}
+							 currentUser={this.props.authUser}/>
 					<Feed places={this.props.places} 
 					      users={this.props.users}   
 					      comments={this.props.comments}              

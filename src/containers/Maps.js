@@ -102,7 +102,7 @@ class Maps extends Component {
                       directions: result,
                   });
                   } else {
-                  console.error(`error fetching directions ${result}`);
+                    console.error(`error fetching directions ${result}`);
                   }
               });
           },
@@ -113,8 +113,9 @@ class Maps extends Component {
   }
 
   render() {    
+    console.log(this.props.focus)
     return (
-        <MapWithADirectionsRenderer defaultCenter={this.props.currentSelectedLocation}
+        <MapWithADirectionsRenderer defaultCenter={this.props.focus}
                                     defaultZoom={15}/>
     )
   }

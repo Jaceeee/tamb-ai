@@ -38,7 +38,12 @@
     border-radius: 50%;
 }
 
-.CommentText p {
+/*.CommentText {*/
+    /*background-color: red;*/
+    /*width: 50vw;*/
+/*}*/
+
+.CommentText>p {
     margin: 0;
     background-color: lightgray;
     border-radius: 1.5em;

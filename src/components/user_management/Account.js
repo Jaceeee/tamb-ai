@@ -5,6 +5,8 @@ import PasswordChangeForm from './PasswordChange';
 
 import { withRouter } from 'react-router-dom';
 
+import Navigation from './Navigation';
+
 import { firebase } from '../../firebase';
 
 import * as routes from '../../constants/routes';
@@ -24,9 +26,12 @@ class AccountPage extends Component {
 	render() {
 		return(
 			<div>
-			    <h1>Account: {this.props.authUser ? this.props.authUser.email : ""}</h1>
-			    <PasswordForgetForm />
-			    <PasswordChangeForm />
+				<Navigation/>
+				<div>
+					<h1>Account: {this.props.authUser ? this.props.authUser.email : ""}</h1>
+					<PasswordForgetForm />
+					<PasswordChangeForm />
+				</div>
 			</div>    
 		)
 	}	

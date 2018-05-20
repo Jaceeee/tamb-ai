@@ -4,7 +4,7 @@ import CommentTab from '../components/CommentTab';
 import DetailsTab from '../components/DetailsTab';
 
 import Comment from '../components/Comment';
-import '../stylesheets/MainPage.css';
+import '../stylesheets/Feed.css';
 
 import { Glyphicon, Jumbotron, Image, Tabs, Tab, Modal } from 'react-bootstrap';
 
@@ -36,7 +36,6 @@ class FeedItem extends Component {
     		}
     	}
 
-    	console.log(place);
     	this.props.changeCurrentMapLocation(place.location);
     	event.preventDefault();
     }
@@ -46,14 +45,13 @@ class FeedItem extends Component {
 			<li style={{listStyleType: "none"}}>				
 				<Jumbotron>										
 					<div>
-						<a><h4>{this.props.name}</h4></a>
+						<h4><a>{this.props.name}</a><Glyphicon id={this.props.id} onClick={this.handleChangeLocation.bind(this)} glyph="map-marker"/></h4>
 					</div>
-					<Glyphicon glyph="map-marker" id={this.props.id} onClick={this.handleChangeLocation.bind(this)}/>					
 					<div className="CaptionContainer">
 						<p className="PostCaption">{this.props.description}</p>
 					</div>					
 					<div className="PostImage">
-						<Image src={this.props.imageUrl} responsive />
+						<Image src={this.props.imageUrl} responsive onClick={this.handleShow} />
 						<Modal show={this.state.show} onHide={this.handleClose}>
 							<Image src={this.props.imageUrl} responsive />
 						</Modal>

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Login from './components/user_management/Login';
-import Header from './components/Header';
-import LeftNav from './components/LeftNav';
-import RightNav from './components/RightNav';
-import Feed from './components/Feed';
+// import Header from './components/Header';
+// import LeftNav from './components/LeftNav';
+// import RightNav from './components/RightNav';
+// import Feed from './components/Feed';
 import { firebase } from './firebase';
-import { Grid, Row } from 'react-bootstrap';
+// import { Grid, Row } from 'react-bootstrap';
 import './App.css';
 
 const base = firebase.base;
@@ -31,12 +31,11 @@ class App extends Component {
     });
   }
 
-  changeCurrentMapLocation(newLocation) {        
-    let newLoc = {lat: newLocation.latitude, lng: newLocation.longitude};
+  changeCurrentMapLocation(newLocation) {            
     this.setState({
       ...this.state,
-      currentLocation: newLoc
-    });
+      currentLocation: {lat: newLocation.latitude, lng: newLocation.longitude}
+    });    
   }
 
   addComment(currentUserId, placeId, comment) {    
