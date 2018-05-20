@@ -12,10 +12,10 @@
     padding-top: 0.5vh;
     padding-left: 2.5vw !important;
     padding-right: 2.5vw !important;
-    padding-bottom: 0vh;
+    padding-bottom: 0;
     /*background-color: #e3e3e3;*/
-    background-color: #EFEFF0;
-    border: solid thin #e3e3e3;
+    background-color: #F9FCFF;
+    border: solid thin #e9ece5;
 }
 
 .CaptionContainer {

@@ -1,10 +1,23 @@
 .navbar-default {
     padding: 0 !important;
-    background-color: #C9F0FF;
+    background-color: #F9FCFF;
     /*background-color: #c0dfd9;*/
-    /*border-bottom: solid thin #284B63;*/
+    border-bottom: solid thin #DEE7E7;
 }
 
-.nav>.nav-items {
-    background-color: pink !important;
+.ControlItem {
+    margin-right: 0.4vw;
+}
+
+.Logout {
+    margin-right: -7.2vw;
+}
+
+.NavbarForm>.form-group>.form-control {
+    margin-right: -3.2vw;
+    width: 24vw;
+    font-weight: 300;
+    border-radius: 1.5em;
+    background-color: #EDF3FF;
+    border: none;
 }

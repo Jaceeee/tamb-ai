@@ -15,18 +15,18 @@ class Header extends Component {
                     {/*</Navbar.Header>*/}
                     <Navbar.Collapse>
                         <Nav>
-                            <NavItem><Glyphicon glyph="home"/></NavItem>
+                            <NavItem className="Item"><Glyphicon glyph="home" className="ControlItem" />Home</NavItem>
                         </Nav>
                         <Nav pullRight>
-                            <NavItem onClick={this.props.changeDisplayState.bind(this, 0)}><Glyphicon glyph="log-out"/></NavItem>
+                            <NavItem className="Logout" onClick={this.props.changeDisplayState.bind(this, 0)}><Glyphicon glyph="log-out" className="ControlItem"/>Logout</NavItem>
                         </Nav>
-                        <Navbar.Form pullRight>
+                        <Navbar.Form pullRight className="NavbarForm">
                             <FormGroup>
                                 <FormControl type="text" placeholder="Search for Places"/>
+                                <Button bsStyle="link">
+                                    <Glyphicon glyph="search" />
+                                </Button>
                             </FormGroup>{' '}
-                            <Button type="submit">
-                                <Glyphicon glyph="search" />
-                            </Button>
                         </Navbar.Form>
                     </Navbar.Collapse>
                 </Grid>

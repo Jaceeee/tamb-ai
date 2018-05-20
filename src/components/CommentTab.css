@@ -1,4 +1,4 @@
-.CommentPageContainer {
+.CommentTabContainer {
     background-color: #e9ece5;
     margin-left: -2.5vw;
     margin-right: -2.5vw;
@@ -66,7 +66,7 @@
     margin-right: 0.5vw;
 }
 
-.CommentPageContainer>form {
+.CommentTabContainer>form {
     margin-top: 2.5vh;
     margin-right: 2.5vw;
 }

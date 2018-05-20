@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Image, FormGroup, FormControl } from 'react-bootstrap';
-import './CommenTab.css';
+import './CommentTab.css';
 
-export default class CommentPage extends Component {
+export default class CommentTab extends Component {
     render() {
         return (
-            <div className="CommentPageContainer">
+            <div className="CommentTabContainer">
                 <ul className="CommentList">
                     <li className="CommentContainer">
                         <div className="CommenterImage">
