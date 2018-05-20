@@ -1,0 +1,39 @@
+.RatingContainer {
+    background-color: #e9ece5;
+    min-height: 16.6vh;
+    max-height: 33.3vh;
+    padding-left: 3.8vw;
+    padding-right: 3.8vw;
+    padding-bottom: 3vh;
+    margin-left: -2.5vw;
+    margin-right: -2.5vw;
+    margin-bottom: 0;
+    /*overflow: auto;*/
+}
+
+.StarAverage {
+    width: 25vw;
+    margin-bottom: -1.5vh !important;
+}
+
+.RatingContainer>p {
+    margin-bottom: -2vh !important;
+    margin-left: 0.5vw;
+    font-weight: 300;
+    font-size: 1.2em;
+}
+
+.RatingContainer>p>strong {
+    font-size: 1.8em;
+}
+
+.RatingContainer>.btn {
+    float: right;
+    margin-top: -6.8vh;
+    /*margin-left: 10vw;*/
+    /*margin-right: 1vw;*/
+}
+
+.ModalButtons {
+    float: right;
+}

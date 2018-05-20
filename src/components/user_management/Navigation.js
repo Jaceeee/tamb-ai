@@ -6,17 +6,21 @@ import * as routes from '../../constants/routes';
 
 import '../../stylesheets/NavigationBar.css';
 
-import { Nav, Navbar, Grid, ButtonGroup, Button, FormGroup, FormControl, Glyphicon } from 'react-bootstrap';
+import { Nav, Navbar, NavItem, Grid, ButtonGroup, Button, FormGroup, FormControl, Glyphicon } from 'react-bootstrap';
 
 const Navigation = ({ authUser }) =>
-  <Navbar inverse collapseOnSelect>
+  <Navbar collapseOnSelect fixedTop>
     <Grid fluid={true}>
-      <Navbar.Header>                    
-        <Navbar.Brand>
-          Tamb-AI
-        </Navbar.Brand>                  
-      </Navbar.Header>
+      {/*<Navbar.Header pullRight>*/}
+          {/*<Navbar.Brand>*/}
+              {/*Tamb-ai*/}
+          {/*</Navbar.Brand>*/}
+          {/*<Navbar.Toggle />*/}
+      {/*</Navbar.Header>*/}      
       <Navbar.Collapse>
+        <Nav>
+          <NavItem classItem="Item"><Glyphicon glyph="home" className="ControlItem" />Home</NavItem>
+        </Nav>        
         <Navbar.Form pullLeft>
           <FormGroup>
               <FormControl type="text" placeholder="Search for Places"/>

@@ -2,17 +2,17 @@ import React from 'react';
 
 import { auth } from '../../firebase';
 
-import { Button } from 'react-bootstrap';
+import { Button, Glyphicon } from 'react-bootstrap';
 
 import '../../stylesheets/NavigationBar.css';
 
 const SignOutButton = () =>
-  <Button    
+  <Glyphicon    
     onClick={auth.doSignOut}
-    bsStyle="danger"
-    className="HeaderLinks"
+    glyph="log-out"
+    className="ControlItem HeaderLinks"
   >
     Sign Out
-  </Button>
+  </Glyphicon>
 
 export default SignOutButton;

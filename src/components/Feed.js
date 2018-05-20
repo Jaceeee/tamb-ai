@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import FeedItem from '../containers/FeedItem';
 import { Col } from 'react-bootstrap';
-import '../stylesheets/MainPage.css';
+
+import FeedCarousel from './FeedCarousel';
+import '../stylesheets/Feed.css';
 
 class Feed extends Component {	
 	constructor() {
@@ -24,8 +26,9 @@ class Feed extends Component {
 		}
 		
 		return (
-			<Col sm={7}>				
-				<FeedsList  places={this.props.places} // naa diri ang location
+			<Col sm={6}>
+				<FeedCarousel/>
+				<FeedsList places={this.props.places} // naa diri ang location
                     users={this.props.users} 
                     currentUserId={currentUser.id}
                     changeCurrentMapLocation={this.props.changeCurrentMapLocation} 
@@ -56,7 +59,7 @@ function FeedsList(props) {
 	});
 
 	return (
-		<ul>			
+		<ul className="FeedList">
 			{feedItems}
 		</ul>
 	)

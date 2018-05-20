@@ -1,37 +1,36 @@
 import React, { Component } from 'react';
-import { Grid, Navbar, Nav, FormControl, FormGroup, Button, Glyphicon } from 'react-bootstrap';
-import '../stylesheets/NavigationBar.css';
+import { Grid, Navbar, Nav, FormControl, FormGroup, Button, Glyphicon, NavDropdown, MenuItem, NavItem } from 'react-bootstrap';
+import '../stylesheets/Header.css';
 
 class Header extends Component {	
 	render() {
 		return (
-			<Navbar inverse collapseOnSelect>
-        <Grid fluid={true}>
-          <Navbar.Header>
-              <Navbar.Brand>
-                  Tamb-ai
-              </Navbar.Brand>
-              <Navbar.Toggle />
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Navbar.Form pullLeft>
-              <FormGroup>
-                  <FormControl type="text" placeholder="Search for Places"/>
-              </FormGroup>{' '}
-              <Button type="submit">
-                  <Glyphicon glyph="search" />
-              </Button>
-            </Navbar.Form>
-            <Nav pullRight>                            
-              <Button style={{position: "relative", top: "7px"}}
-                  		bsStyle="danger"
-		                  onClick={this.props.changeDisplayState.bind(this, 0)}>				                    
-                      Logout
-              </Button>
-            </Nav>                       
-          </Navbar.Collapse>
-        </Grid>
-      </Navbar>
+			<Navbar collapseOnSelect fixedTop>
+                <Grid fluid={true}>
+                    {/*<Navbar.Header pullRight>*/}
+                        {/*<Navbar.Brand>*/}
+                            {/*Tamb-ai*/}
+                        {/*</Navbar.Brand>*/}
+                        {/*<Navbar.Toggle />*/}
+                    {/*</Navbar.Header>*/}
+                    <Navbar.Collapse>
+                        <Nav>
+                            <NavItem className="Item"><Glyphicon glyph="home" className="ControlItem" />Home</NavItem>
+                        </Nav>
+                        <Nav pullRight>
+                            <NavItem className="Logout" onClick={this.props.changeDisplayState.bind(this, 0)}><Glyphicon glyph="log-out" className="ControlItem"/>Logout</NavItem>
+                        </Nav>
+                        <Navbar.Form pullRight className="NavbarForm">
+                            <FormGroup>
+                                <FormControl type="text" placeholder="Search for Places"/>
+                                <Button bsStyle="link">
+                                    <Glyphicon glyph="search" />
+                                </Button>
+                            </FormGroup>{' '}
+                        </Navbar.Form>
+                    </Navbar.Collapse>
+                </Grid>
+            </Navbar>
 		)
 	}
 }

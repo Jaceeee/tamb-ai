@@ -1,0 +1,56 @@
+.FeedList {
+    padding: 0 !important;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+.jumbotron {
+    min-height: 73.8vh;
+    max-height: 110vh;
+    margin-top: 2vh;
+    margin-bottom: 0;
+    padding-top: 0.5vh;
+    padding-left: 2.5vw !important;
+    padding-right: 2.5vw !important;
+    padding-bottom: 0;
+    /*background-color: #e3e3e3;*/
+    background-color: #F9FCFF;
+    border: solid thin #e9ece5;
+}
+
+.CaptionContainer {
+    /*background-color: palegoldenrod;*/
+}
+
+.PostCaption {
+    font-size: 1em !important;
+    font-weight: 300 !important;
+}
+
+.PostImage {
+    height: 53vh !important;
+    width: 100%;
+    margin-top: 2.3vh;
+}
+
+.PostImage>img {
+    height: 100%;
+    width: 100%;
+}
+
+.FeedTabs {
+    margin-top: 3vh;
+}
+
+.TabsContainer {
+    /*background-color: pink !important;*/
+    border-top: solid thin #b3c2bf;
+}
+
+.PostImage>img:hover {
+    opacity: 0.7;
+}
+
+/*.mid {
+    background-color: pink !important;
+}*/

@@ -10,15 +10,25 @@
     "re-base": "^3.2.2",
     "react": "^16.3.1",
     "react-bootstrap": "0.32.1",
+    "react-bootstrap-date-picker": "^5.1.0",
+    "react-bootstrap-date-time-picker": "0.0.3",
+    "react-bootstrap-star-rating": "^3.5.5-alpha.0.3",
+    "react-day-picker": "^7.1.9",
     "react-dom": "^16.3.1",
     "react-google-maps": "^9.4.5",
+    "react-ratings-declarative": "^3.4.1",
     "react-router-dom": "4.2.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "react-star-ratings": "^2.2.0",
+    "react-stars": "^2.2.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-social-icons": "^3.0.0"
   }
 }

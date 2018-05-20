@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import Maps from '../containers/Maps';
+import { Col } from 'react-bootstrap';
+import '../stylesheets/RightNav.css';
 
 class RightNav extends Component {	
-	render() {
-		// console.log("Yo");
-		// console.log(this.props);
-		// console.log("Yo");
+	render() {		
 		if(!this.props.loaded) {
 			return (
-				<div className="col-lg-2">
-					<Maps />
-				</div>
-				// <div> ...Loaded</div>
+				<Col sm={4}>
+					<div className="RightPanel">Loading... </div>
+				</Col>
 			)
 		}
 		return(
 			<div>			
+				<Maps />
 			</div>
 		)
 	}

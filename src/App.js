@@ -6,6 +6,7 @@ import RightNav from './components/RightNav';
 import Feed from './components/Feed';
 import { firebase } from './firebase';
 import { Grid, Row } from 'react-bootstrap';
+import './App.css';
 
 const base = firebase.base;
 
@@ -69,7 +70,7 @@ class App extends Component {
 
   render() {            
     return (  
-      <div className="main">
+      <div>
         <LogSwitcher displayState={this.state.displayState}
                      changeDisplayState={this.changeDisplayState.bind(this)}
                      changeCurrentMapLocation={this.changeCurrentMapLocation.bind(this)}
@@ -99,7 +100,7 @@ const LogSwitcher = (props) => {
         <div>
           <Header changeDisplayState={props.changeDisplayState}/>                    
           <Grid fluid={true}>
-            <Row>            
+            <Row className="show-grid">
               <LeftNav />
               <Feed places = {props.places} 
                     users = {props.users}                 
