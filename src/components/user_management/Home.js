@@ -37,7 +37,7 @@ class Home extends Component {
 					      changeCurrentMapLocation={this.props.changeCurrentMapLocation}
 					      addComment={this.props.addComment}
 					      currentUser={this.props.authUser}
-					      addRating={this.props.addRating}/>
+					      addRating={this.props.addRating.bind(this)}/>
 					<RightNav currentLocation={this.props.currentLocation}/> 
 				</Row>
 			)			

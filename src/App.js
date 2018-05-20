@@ -9,13 +9,14 @@ import { Grid, Row } from 'react-bootstrap';
 import './App.css';
 
 const base = firebase.base;
+let setState;
 
 class App extends Component {    
   constructor() {
     super();
     this.state = {      
       locationList: [],
-      currentLocation: { lat: -1, lng: -1 },
+      currentLocation: { lat: 10.3231372, lng: 123.8988388 },
       places: [],
       users: [],
       ratings: [],
@@ -31,9 +32,10 @@ class App extends Component {
   }
 
   changeCurrentMapLocation(newLocation) {        
+    let newLoc = {lat: newLocation.latitude, lng: newLocation.longitude};
     this.setState({
       ...this.state,
-      currentLocation: newLocation
+      currentLocation: newLoc
     });
   }
 
@@ -52,7 +54,7 @@ class App extends Component {
     this.setState({...this.state, comments});
   }
 
-  addRating(currentUserId, placeId, text, rate_value) {
+  addRating(currentUserId, placeId, text, rate_value) {    
     let newRating = {
       id: this.state.ratings.length,
       place_id: placeId,
@@ -64,11 +66,12 @@ class App extends Component {
     const { ratings } = this.state;
 
     ratings.push(newRating);
-    
-    this.setState({...this.state, ratings});
+        
+    setState({...this.state, ratings});
   }
 
   componentWillMount() {
+    setState = this.setState;
     this.usersRef = base.syncState('users', {
       context: this,
       state: 'users'

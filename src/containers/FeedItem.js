@@ -11,18 +11,35 @@ import { Glyphicon, Jumbotron, Image, Tabs, Tab, Modal } from 'react-bootstrap';
 class FeedItem extends Component {
 	constructor(props) {
 		super(props);
-    this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-    this.state = { show: false };
+    	this.handleShow = this.handleShow.bind(this);
+    	this.handleClose = this.handleClose.bind(this);
+    	this.state = { show: false };
 	}
 
 	handleClose() {
-    this.setState({ show: false });
-  }
+	    this.setState({ show: false });
+    }
 
-  handleShow() {
-    this.setState({ show: true });
-  }
+    handleShow() {
+	    this.setState({ show: true });
+    }
+
+    handleChangeLocation(event) {
+    	console.log(event.target);
+    	console.log(this.props.places);
+
+    	let place;
+
+    	for (var i = 0; i < this.props.places.length; i++) {
+    		if(this.props.places[i].id == event.target.id) {
+    			place = this.props.places[i];
+    		}
+    	}
+
+    	console.log(place);
+    	this.props.changeCurrentMapLocation(place.location);
+    	event.preventDefault();
+    }
 
 	render() {					
 		return (
@@ -31,7 +48,7 @@ class FeedItem extends Component {
 					<div>
 						<a><h4>{this.props.name}</h4></a>
 					</div>
-					<Glyphicon glyph="map-marker" onClick={this.props.changeCurrentMapLocation(this.props.places[this.props.id])}/>					
+					<Glyphicon glyph="map-marker" id={this.props.id} onClick={this.handleChangeLocation.bind(this)}/>					
 					<div className="CaptionContainer">
 						<p className="PostCaption">{this.props.description}</p>
 					</div>					

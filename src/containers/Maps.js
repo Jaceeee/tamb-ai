@@ -24,6 +24,9 @@ const MapWithADirectionsRenderer = compose(
                 (position) => {                    
                     originlat = position.coords.latitude;
                     originlng = position.coords.longitude;
+
+                    console.log(originlat);
+                    console.log(originlng);
                     error = null;
 
                     DirectionsService.route({
@@ -47,9 +50,10 @@ const MapWithADirectionsRenderer = compose(
     })
   )(props =>
   <GoogleMap
-      defaultZoom={7}
+      defaultZoom={props.defaultZoom}
       defaultCenter= {props.defaultCenter} //{new google.maps.LatLng(41.8507300, -87.6512600)}
   >
+    <Marker position={props.defaultCenter} />
     {props.directions && <DirectionsRenderer directions={props.directions} />}
   </GoogleMap>
 );
@@ -108,7 +112,8 @@ class Maps extends Component {
 
   render() {    
     return (
-        <MapWithADirectionsRenderer defaultCenter={this.props.currentSelectedLocation}/>
+        <MapWithADirectionsRenderer defaultCenter={this.props.currentSelectedLocation}
+                                    defaultZoom={15}/>
     )
   }
 }

@@ -31,17 +31,17 @@ export default class RatingTab extends Component {
     }
 
     componentWillMount() {
-      const { ratings, placeId } = this.props;
+      const { ratings, placeId } = this.props;        
 
       let ratingValue = 0, count = 0;
 
-      for (var i = 0; i < ratings.length; i++) {
+      for (var i = 0; i < ratings.length; i++) {        
         if(ratings[i].place_id === placeId) {
           console.log("Place");        
           console.log(placeId);
-          ratingValue += ratings[i].rate_value;
+          ratingValue += ratings[i].rating_value;
           ++count;
-          console.log(ratings[i].rate_value);
+          console.log(ratings[i].rating_value);
           console.log(count);
         }
       }
@@ -63,11 +63,9 @@ export default class RatingTab extends Component {
     addRating(event) {
       const { adjustedRating, adjustedText } = this.state;
 
-      const valid = adjustedText !== '' && adjustedRating != 0;
+      const valid = adjustedText !== '' && adjustedRating !== 0;
 
       const { currentUserId, placeId } = this.props;
-
-      this.refs.comment.value = '';
 
       if(valid) {
         this.props.addRating(currentUserId, placeId, adjustedText, adjustedRating);      
@@ -76,15 +74,14 @@ export default class RatingTab extends Component {
       event.preventDefault();
     }
 
-    render() {
-      console.log(this.state);
+    render() {      
       return (
           <div className="RatingContainer">
               <p><strong>{this.state.average}</strong> out of 5</p>
               <ReactStars value={this.state.average} edit={false} size={35} className="StarAverage"></ReactStars>              
               <Button bsStyle="primary" onClick={this.handleShow}>Rate Place</Button>              
               <Modal show={this.state.show} onHide={this.handleClose}>
-                <form onSubmit={this.props.addRating.bind(this)} >
+                <form onSubmit={this.addRating.bind(this)} >
                   <Modal.Header closeButton>
                       <Modal.Title>Place Name</Modal.Title>
                   </Modal.Header>
