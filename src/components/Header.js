@@ -7,15 +7,17 @@ class Header extends Component {
 		return (
 			<Navbar collapseOnSelect fixedTop>
                 <Grid fluid={true}>
-                    {/*<Navbar.Header pullRight>*/}
-                        {/*<Navbar.Brand>*/}
+                    <Navbar.Header pullRight>
+                        <Navbar.Brand>
                             {/*Tamb-ai*/}
-                        {/*</Navbar.Brand>*/}
-                        {/*<Navbar.Toggle />*/}
-                    {/*</Navbar.Header>*/}
+                        </Navbar.Brand>
+                        <Navbar.Toggle />
+                    </Navbar.Header>
                     <Navbar.Collapse>
                         <Nav>
+                            <NavItem><Glyphicon glyph="cog" className="SettingGlyph"/>Settings</NavItem>
                             <NavItem className="Item"><Glyphicon glyph="home" className="ControlItem" />Home</NavItem>
+                            <NavItem><Glyphicon glyph="envelope" className="ControlItem"/>Notifications</NavItem>
                         </Nav>
                         <Nav pullRight>
                             <NavItem className="Logout" onClick={this.props.changeDisplayState.bind(this, 0)}><Glyphicon glyph="log-out" className="ControlItem"/>Logout</NavItem>

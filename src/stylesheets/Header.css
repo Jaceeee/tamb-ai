@@ -1,8 +1,14 @@
 .navbar-default {
     padding: 0 !important;
+    /*background-color: #F9FCFF;*/
     background-color: #F9FCFF;
-    /*background-color: #c0dfd9;*/
-    border-bottom: solid thin #DEE7E7;
+    box-shadow: 0.1vh 0.1vh #DEE7E7;
+    /*border-bottom: solid medium #DEE7E7;*/
+}
+
+.SettingGlyph {
+    margin-left: -8.7vw;
+    margin-right: 0.4vw;
 }
 
 .ControlItem {
