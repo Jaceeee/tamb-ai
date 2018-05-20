@@ -6,7 +6,7 @@ import * as routes from '../../constants/routes';
 
 import '../../stylesheets/NavigationBar.css';
 
-import { Nav, Navbar, Grid, Row, Col, ButtonGroup, Button, FormGroup, FormControl, Glyphicon } from 'react-bootstrap';
+import { Nav, Navbar, Grid, ButtonGroup, Button, FormGroup, FormControl, Glyphicon } from 'react-bootstrap';
 
 const Navigation = ({ authUser }) =>
   <Navbar inverse collapseOnSelect>

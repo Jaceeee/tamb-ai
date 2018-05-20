@@ -9,13 +9,9 @@ import PasswordForgetPage from './PasswordForget';
 import Home from './Home';
 import AccountPage from './Account';
 
-import LeftNav from '../LeftNav';
-import RightNav from '../RightNav';
-import Feed from '../Feed';
-
 import * as routes from '../../constants/routes';
 
-import { Grid, Row } from 'react-bootstrap';
+import { Grid } from 'react-bootstrap';
 import { firebase } from '../../firebase';
 
 class Login extends Component {
@@ -65,7 +61,8 @@ class Login extends Component {
                                    places={this.props.places}
                                    users={this.props.users}
                                    changeCurrentMapLocation={this.props.changeCurrentMapLocation}
-                                   currentLocation={this.props.currentLocation} />              
+                                   currentLocation={this.props.currentLocation} 
+                                   addComment={this.props.addComment} />              
             }
           />
           <Route

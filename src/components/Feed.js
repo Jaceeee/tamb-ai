@@ -9,21 +9,27 @@ class Feed extends Component {
 		this.state = {
 			places: [{}],
 			users: [{}],
-			currentUser: {
-				last_name: "Unk",
-				first_name: "Unk"
-			},
+			currentUser: {},
 			loaded: false
 		}		
 	}	
 
-	render () {					
+	render () {							
+		let currentUser = { id: -1 } ;
+
+		for (var i = this.props.users.length - 1; i >= 0; i--) {			
+			if(this.props.users[i].email === this.props.currentUser.email) {
+				currentUser = this.props.users[i];
+			}
+		}
+		
 		return (
 			<Col sm={7}>				
 				<FeedsList  places={this.props.places} // naa diri ang location
                     users={this.props.users} 
-                    currentUser={this.state.currentUser.first_name !== "" ? `${this.state.currentUser.first_name} ${this.state.currentUser.last_name}` : "Unknown"}
-                    changeCurrentMapLocation={this.props.changeCurrentMapLocation} />		   	
+                    currentUserId={currentUser.id}
+                    changeCurrentMapLocation={this.props.changeCurrentMapLocation} 
+                    addComment={this.props.addComment}/>		   	
 		  	</Col>
     	)
 	}
@@ -36,15 +42,16 @@ function FeedsList(props) {
 			<FeedItem id={feedItem.id}
                 places={feed}
                 name={feedItem.name} 
-				contact={feedItem.contactNumber}
-				type={feedItem.type}
-				description={feedItem.description}
-				imageUrl={feedItem.imageUrl}
-        		location = {feedItem.location}
-        		key={feedItem.id.toString()}                 
-                currentUser={props.currentUser}
+		        		contact={feedItem.contactNumber}
+				        type={feedItem.type}
+				        description={feedItem.description}
+				        imageUrl={feedItem.imageUrl}
+        		    location = {feedItem.location}
+        		    key={feedItem.id.toString()}                 
+                currentUserId={props.currentUserId}
                 className={feedItem.type} 
-                changeCurrentMapLocation={props.changeCurrentMapLocation}/>
+                changeCurrentMapLocation={props.changeCurrentMapLocation}
+                addComment={props.addComment}/>
 		);
 	});
 

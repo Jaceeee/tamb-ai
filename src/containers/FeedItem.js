@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import { Row, Col, Jumbotron, Image, Tabs, Tab, Glyphicon } from 'react-bootstrap';
+import { Row, Jumbotron, Image, Tabs, Tab, Glyphicon } from 'react-bootstrap';
 import Comment from '../components/Comment';
 import '../stylesheets/MainPage.css';
 
 class FeedItem extends Component {
-	render() {			
+	render() {					
 		return (
 			<li style={{listStyleType: "none"}}>				
 				<Jumbotron>					
@@ -34,7 +34,9 @@ class FeedItem extends Component {
 									</div>
 								</Tab>
 								<Tab eventKey={2} title="Comment">
-									<Comment />
+									<Comment addComment={this.props.addComment}
+									         currentUserId={this.props.currentUserId}
+									         placeId={this.props.id}/>
 								</Tab>
 								<Tab eventKey={3} title="Rating">
 								</Tab>

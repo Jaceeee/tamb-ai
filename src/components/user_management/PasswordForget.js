@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { auth } from '../../firebase';
 
-import { Grid, Row, Col, Button, FormControl, FormGroup, ControlLabel } from 'react-bootstrap';
+import { Row, Col, Button, FormControl, FormGroup, ControlLabel } from 'react-bootstrap';
 
 const PasswordForgetPage = () =>
   <Row>

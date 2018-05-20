@@ -35,6 +35,12 @@ class App extends Component {
     });
   }
 
+  addComment(currentUser, placeId, comment) {
+    console.log(currentUser);
+    console.log(placeId);
+    console.log(comment);
+  }
+
   componentWillMount() {
     this.usersRef = base.syncState('users', {
       context: this,
@@ -69,7 +75,8 @@ class App extends Component {
                      changeCurrentMapLocation={this.changeCurrentMapLocation.bind(this)}
                      places = {this.state.places} 
                      currentLocation = {this.state.currentLocation}
-                     users = {this.state.users} />                        
+                     users = {this.state.users} 
+                     addComment={this.addComment}/>                        
       </div>            
     );
   }
@@ -83,7 +90,8 @@ const LogSwitcher = (props) => {
                places={props.places}
                users={props.users}
                changeCurrentMapLocation={props.changeCurrentMapLocation}
-               currentLocation={props.currentLocation}/>
+               currentLocation={props.currentLocation}
+               addComment={props.addComment}/>
       )
     case 1: 
     default:
@@ -95,7 +103,8 @@ const LogSwitcher = (props) => {
               <LeftNav />
               <Feed places = {props.places} 
                     users = {props.users}                 
-                    changeCurrentMapLocation = {props.changeCurrentMapLocation}/>
+                    changeCurrentMapLocation = {props.changeCurrentMapLocation}
+                    addComment={props.addComment}/>
               <RightNav currentLocation = {props.currentLocation}/> 
             </Row>
           </Grid>

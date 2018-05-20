@@ -70,16 +70,12 @@ class Maps extends Component {
       var originlat = null;
       var originlng = null;
       var error = null;
-
-      console.log(navigator.geolocation.getCurrentPosition);
+      
       navigator.geolocation.getCurrentPosition(
           (position) => {
 
               originlat = position.coords.latitude;
-              originlng = position.coords.longitude;
-              console.log("Hello")
-              console.log(originlat);
-              console.log(originlng);
+              originlng = position.coords.longitude;              
               error = null;
 
               DirectionsService.route({
