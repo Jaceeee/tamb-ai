@@ -100,8 +100,8 @@ class App extends Component {
   render() {      
     return (  
       <div>
-        <Login changeCurrentMapLocation={this.changeCurrentMapLocation.bind(this)}
-               places = {this.state.places} 
+              <Login changeCurrentMapLocation={this.changeCurrentMapLocation.bind(this)}
+                     places = {this.state.places} 
                      currentLocation = {this.state.currentLocation}
                      users = {this.state.users} 
                      comments={this.state.comments}

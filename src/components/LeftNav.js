@@ -12,13 +12,21 @@ class LeftNav extends Component {
     };
   }
 	render() {
+        let currentUser = { id: -1 } ;
+        
+        for (var i = this.props.users.length - 1; i >= 0; i--) {                        
+            if(this.props.users[i].email === this.props.currentUser.email) {                
+                currentUser = this.props.users[i];
+            }
+        }
+        
 		return(
 			<Col sm={2} xsHidden={true}>
                 <div className="LeftPanel">
                     <div className="Profile">
                         <Image src="http://www.hcjoints.be/images/static/user-image.jpg" circle responsive />
                         <div>
-                            <p><a>John Caesar Patac</a></p>
+                            <p><a>{currentUser.first_name + " " + currentUser.last_name}</a></p>
                         </div>
                     </div>
                     <div className="LinkContainer">

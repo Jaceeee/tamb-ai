@@ -88,6 +88,8 @@ class Maps extends Component {
 
               originlat = position.coords.latitude;
               originlng = position.coords.longitude;              
+              console.log(originlat);
+              console.log(originlng);
               error = null;
 
               DirectionsService.route({

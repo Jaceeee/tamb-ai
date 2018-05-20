@@ -29,7 +29,8 @@ class Home extends Component {
 		if(this.props.authUser){
 			return(
 				<Row>            
-					<LeftNav />
+					<LeftNav currentUser={this.props.authUser}
+					         users={this.props.users}/>
 					<Feed places={this.props.places} 
 					      users={this.props.users}   
 					      comments={this.props.comments}              
