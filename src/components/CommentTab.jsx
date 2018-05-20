@@ -31,61 +31,12 @@ export default class CommentTab extends Component {
       event.preventDefault();
     }
 
-    render() {      
-        const { comments, users, placeId } = this.props;
-
-        let filteredCommentsByPlace = comments.filter((commentItem) => {
-          return commentItem.place_id === placeId;
-        });
-
-        console.log(filteredCommentsByPlace);
-
-        const commentsList = filteredCommentsByPlace.map((commentItem) => {
-          let user;
-
-          for (var i = 0; i < users.length; i++) {
-            if(users[i].id === commentItem.commenter_id) {
-              user = users[i];
-            }
-          }
-
-
-          return (<CommentItem context={commentItem.context}
-                              user={user} />);
-        });
-        
-        console.log("Comments list");
-        console.log(commentsList);
-
-        const commentItems = () => (
-          <ul className="CommentList">
-            <li className="CommentContainer">
-              <div className="CommenterImage">
-                <Image src="http://placekitten.com/50/50" circle responsive />
-              </div>
-              <div className="CommentText">
-                <p><a className="CommenterName">"John Caesar Patac"</a>Sample Comment</p>
-                <div className="DateSubText">on May 9, 2018</div>
-              </div>
-            </li>            
-          </ul>
-        );
-
-        console.log("Comment Items")
-        console.log(commentItems);
+    render() {                      
         return (
           <div className="CommentTabContainer">
-            <ul className="CommentList">
-              <li className="CommentContainer">
-                <div className="CommenterImage">
-                  <Image src="http://placekitten.com/50/50" circle responsive />
-                </div>
-                <div className="CommentText">
-                  <p><a className="CommenterName">John Caesar Patac</a>Sample Comment</p>
-                  <div className="DateSubText">on May 9, 2018</div>
-                </div>
-              </li>            
-            </ul>
+            <CommentItems comments={this.props.comments}
+                          users={this.props.users}
+                          placeId={this.props.placeId}/>
             <form onSubmit={this.addComment.bind(this)}>
               <FormGroup>
                 <FormControl ref="comment"
@@ -100,11 +51,49 @@ export default class CommentTab extends Component {
     }
 }
 
-const CommentItems = () => {
+const CommentItems = (props) => {
+  const { comments, users, placeId } = props;
 
+  let filteredCommentsByPlace = comments.filter((commentItem) => {
+    return commentItem.place_id === placeId;
+  });
+
+  console.log(filteredCommentsByPlace);
+
+  const commentsList = filteredCommentsByPlace.map((commentItem) => {
+    let user;
+
+    for (var i = 0; i < users.length; i++) {
+      if(users[i].id === commentItem.commenter_id) {
+        user = users[i];
+      }
+    }
+
+
+    return (<CommentItem context={commentItem.context}
+                        user={user} />);
+  });
+  
+  console.log("Comments list");
+  console.log(commentsList);
+
+  return (
+    <ul className="CommentList">
+      <li className="CommentContainer">
+        <div className="CommenterImage">
+          <Image src="http://placekitten.com/50/50" circle responsive />
+        </div>
+        <div className="CommentText">
+          <p><a className="CommenterName">"John Caesar Patac"</a>Sample Comment</p>
+          <div className="DateSubText">on May 9, 2018</div>
+        </div>
+      </li>
+      {commentsList}
+    </ul>
+  );  
 }
 
-const CommentItem = (props) => {
+const CommentItem = (props) => (
   <li className="CommentContainer">
     <div className="CommenterImage">
       <Image src="http://placekitten.com/50/50" circle responsive />
@@ -114,4 +103,4 @@ const CommentItem = (props) => {
       <div className="DateSubText">on May 9, 2018</div>
     </div>
   </li>
-}
+)
