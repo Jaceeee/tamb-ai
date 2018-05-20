@@ -62,6 +62,14 @@ function DirectionsWrapper(props) {
 
 
 class Maps extends Component {    
+  constructor() {
+    super();
+
+    this.state = {
+      latitude: 0,
+      longitude: 0
+    }
+  }
 
   componentDidMount () {
     if(window.google){
@@ -98,9 +106,9 @@ class Maps extends Component {
     }
   }
 
-  render() {
+  render() {    
     return (
-        <MapWithADirectionsRenderer defaultCenter={{lat: 41.8507300, lng: -87.6512600}}/>
+        <MapWithADirectionsRenderer defaultCenter={this.props.currentSelectedLocation}/>
     )
   }
 }

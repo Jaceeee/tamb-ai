@@ -13,8 +13,7 @@ const base = firebase.base;
 class App extends Component {    
   constructor() {
     super();
-    this.state = {
-      displayState: 0,
+    this.state = {      
       locationList: [],
       currentLocation: { lat: -1, lng: -1 },
       places: [],
@@ -38,11 +37,7 @@ class App extends Component {
     });
   }
 
-  addComment(currentUserId, placeId, comment) {
-    console.log(currentUserId);
-    console.log(placeId);
-    console.log(comment);
-    
+  addComment(currentUserId, placeId, comment) {    
     let newComment = {
       commenter_id: currentUserId,
       context: comment,
@@ -55,6 +50,22 @@ class App extends Component {
     comments.push(newComment);
 
     this.setState({...this.state, comments});
+  }
+
+  addRating(currentUserId, placeId, text, rate_value) {
+    let newRating = {
+      id: this.state.ratings.length,
+      place_id: placeId,
+      rate_value: rate_value,
+      rater_id: currentUserId,
+      text: text
+    }
+
+    const { ratings } = this.state;
+
+    ratings.push(newRating);
+    
+    this.setState({...this.state, ratings});
   }
 
   componentWillMount() {
@@ -83,54 +94,20 @@ class App extends Component {
     base.removeBinding(this.ratingsRef);
   }
 
-  render() {  
-    console.log(this.state);
+  render() {      
     return (  
       <div>
-        <LogSwitcher displayState={this.state.displayState}
-                     changeDisplayState={this.changeDisplayState.bind(this)}
-                     changeCurrentMapLocation={this.changeCurrentMapLocation.bind(this)}
-                     places = {this.state.places} 
+        <Login changeCurrentMapLocation={this.changeCurrentMapLocation.bind(this)}
+               places = {this.state.places} 
                      currentLocation = {this.state.currentLocation}
                      users = {this.state.users} 
                      comments={this.state.comments}
                      ratings={this.state.ratings}
-                     addComment={this.addComment.bind(this)}/>                        
+                     addComment={this.addComment.bind(this)}
+                     addRating={this.addRating.bind(this)}/>
       </div>            
     );
   }
 }
 
-const LogSwitcher = (props) => {
-  switch(props.displayState) {
-    case 0:
-      return  (
-        <Login changeDisplayState={props.changeDisplayState}
-               places={props.places}
-               users={props.users}
-               comments={props.comments}
-               ratings={props.ratings}
-               changeCurrentMapLocation={props.changeCurrentMapLocation}
-               currentLocation={props.currentLocation}
-               addComment={props.addComment}/>
-      )
-    case 1: 
-    default:
-      return (
-        <div>
-          <Header changeDisplayState={props.changeDisplayState}/>                    
-          <Grid fluid={true}>
-            <Row className="show-grid">
-              <LeftNav />
-              <Feed places = {props.places} 
-                    users = {props.users}                 
-                    changeCurrentMapLocation = {props.changeCurrentMapLocation}
-                    addComment={props.addComment}/>
-              <RightNav currentLocation = {props.currentLocation}/> 
-            </Row>
-          </Grid>
-        </div>
-      )
-  }  
-}
 export default App;

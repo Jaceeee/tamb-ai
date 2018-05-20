@@ -64,7 +64,8 @@ class Login extends Component {
                                    ratings={this.props.ratings}
                                    changeCurrentMapLocation={this.props.changeCurrentMapLocation}
                                    currentLocation={this.props.currentLocation} 
-                                   addComment={this.props.addComment} />              
+                                   addComment={this.props.addComment} 
+                                   addRating={this.props.addRating}/>              
             }
           />
           <Route

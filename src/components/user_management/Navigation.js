@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import SignOutButton from './SignOut';
 import * as routes from '../../constants/routes';
 
-import '../../stylesheets/NavigationBar.css';
+// import '../../stylesheets/NavigationBar.css';
+// import '../../stylesheets/Header.css';
 
 import { Nav, Navbar, NavItem, Grid, ButtonGroup, Button, FormGroup, FormControl, Glyphicon } from 'react-bootstrap';
 

@@ -31,7 +31,7 @@ class FeedItem extends Component {
 					<div>
 						<a><h4>{this.props.name}</h4></a>
 					</div>
-					<Glyphicon glyph="map-marker"/>					
+					<Glyphicon glyph="map-marker" onClick={this.props.changeCurrentMapLocation(this.props.places[this.props.id])}/>					
 					<div className="CaptionContainer">
 						<p className="PostCaption">{this.props.description}</p>
 					</div>					
@@ -44,7 +44,12 @@ class FeedItem extends Component {
 					<div className="FeedTabs">
 						<Tabs defaultActiveKey={2} >
 							<Tab eventKey={1} title="Rating">
-								<RatingTab />
+								<RatingTab currentUserId={this.props.currentUserId}
+										   addRating={this.props.addRating}
+										   users={this.props.users}
+								           placeId={this.props.id}
+								           comments={this.props.comments}
+								           ratings={this.props.ratings}/>
 							</Tab>
 							<Tab eventKey={2} title="Comment">
 								<CommentTab addComment={this.props.addComment}

@@ -31,9 +31,11 @@ class Feed extends Component {
 				<FeedsList places={this.props.places} // naa diri ang location
                            users={this.props.users} 
                            comments={this.props.comments}
+                           ratings={this.props.ratings}
                            currentUserId={currentUser.id}
                            changeCurrentMapLocation={this.props.changeCurrentMapLocation} 
-                           addComment={this.props.addComment}/>		   	
+                           addComment={this.props.addComment}
+                           addRating={this.props.addRating}/>
 		  	</Col>
     	)
 	}
@@ -47,6 +49,7 @@ function FeedsList(props) {
                       places={feed}
                       users={props.users}
                       comments={props.comments}
+                      ratings={props.ratings}
                       name={feedItem.name} 
 		        	  contact={feedItem.contactNumber}
 				      type={feedItem.type}
@@ -57,7 +60,8 @@ function FeedsList(props) {
                       currentUserId={props.currentUserId}
                  	  className={feedItem.type} 
                   	  changeCurrentMapLocation={props.changeCurrentMapLocation}
-                	  addComment={props.addComment}/>
+                	  addComment={props.addComment}
+                	  addRating={props.addRating}/>
 		);
 	});
 

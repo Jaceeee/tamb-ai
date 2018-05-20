@@ -53,10 +53,12 @@ export default class CommentTab extends Component {
 
 const CommentItems = (props) => {
   const { comments, users, placeId } = props;
-
+    
   let filteredCommentsByPlace = comments.filter((commentItem) => {
     return commentItem.place_id === placeId;
   });
+
+  console.log(filteredCommentsByPlace);
 
   const commentsList = filteredCommentsByPlace.map((commentItem) => {
     let user;
@@ -70,7 +72,10 @@ const CommentItems = (props) => {
 
     return (<CommentItem context={commentItem.context}
                         user={user} />);
-  });  
+  });
+  
+  console.log("Comments list");
+  console.log(commentsList);
 
   return (
     <ul className="CommentList">

@@ -4,7 +4,6 @@ import { auth } from '../../firebase';
 
 import { Button, Glyphicon } from 'react-bootstrap';
 
-import '../../stylesheets/NavigationBar.css';
 
 const SignOutButton = () =>
   <Glyphicon    
