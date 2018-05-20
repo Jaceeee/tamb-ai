@@ -31,7 +31,9 @@ class Home extends Component {
 				<Row>            
 					<LeftNav />
 					<Feed places={this.props.places} 
-					      users={this.props.users}                 
+					      users={this.props.users}   
+					      comments={this.props.comments}              
+					      ratings={this.props.ratings}
 					      changeCurrentMapLocation={this.props.changeCurrentMapLocation}
 					      addComment={this.props.addComment}
 					      currentUser={this.props.authUser}/>

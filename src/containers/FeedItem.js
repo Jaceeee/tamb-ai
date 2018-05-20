@@ -49,7 +49,9 @@ class FeedItem extends Component {
 							<Tab eventKey={2} title="Comment">
 								<CommentTab addComment={this.props.addComment}
 								            currentUserId={this.props.currentUserId}
-								            placeId={this.props.id}/>
+								            users={this.props.users}
+								            placeId={this.props.id}
+								            comments={this.props.comments}/>
 							</Tab>
 							<Tab eventKey={3} title="Details">
 							  <DetailsTab />
@@ -63,46 +65,3 @@ class FeedItem extends Component {
 }
 
 export default FeedItem;
-
-
-/*
-
-render() {					
-		return (
-			<li style={{listStyleType: "none"}}>				
-				<Jumbotron>					
-					<Row>
-						<div>
-							<a><h4>{this.props.name}</h4></a>
-						</div>
-						<Glyphicon glyph="map-marker"/>
-					</Row>
-					<Row>
-						<div className="CaptionContainer">
-							<p className="PostCaption">{this.props.description}</p>
-						</div>
-					</Row>
-					<Row>
-						<div className="PostImage">
-							<Image src={this.props.imageUrl} responsive />
-						</div>
-					</Row>
-					<br />
-					<Row>
-						<div className="FeedTabs">
-							<Tabs defaultActiveKey={2} >
-								<Tab eventKey={1} title="Rating">
-									<RatingTab />
-								</Tab>
-								<Tab eventKey={2} title="Comment">
-									<CommentTab addComment={this.props.addComment}
-									            currentUserId={this.props.currentUserId}
-									            placeId={this.props.id}/>
-								</Tab>
-								<Tab eventKey={3} title="Details">
-								  <DetailsTab />
-								</Tab>
-							</Tabs>
-						</div>						
-					</Row>
-*/

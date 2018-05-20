@@ -8,7 +8,7 @@ class RightNav extends Component {
 		if(!this.props.loaded) {
 			return (
 				<Col sm={4}>
-					<div className="RightPanel">Loading... </div>
+					<Maps />
 				</Col>
 			)
 		}

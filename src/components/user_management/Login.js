@@ -31,7 +31,7 @@ class Login extends Component {
     });
   }
 
-  render() {    
+  render() {        
     return(
       <Router>
         <Grid fluid={true}>        
@@ -60,6 +60,8 @@ class Login extends Component {
             component={() => <Home authUser={this.state.authUser}
                                    places={this.props.places}
                                    users={this.props.users}
+                                   comments={this.props.comments}
+                                   ratings={this.props.ratings}
                                    changeCurrentMapLocation={this.props.changeCurrentMapLocation}
                                    currentLocation={this.props.currentLocation} 
                                    addComment={this.props.addComment} />              

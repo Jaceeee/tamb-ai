@@ -24,15 +24,16 @@ class Feed extends Component {
 				currentUser = this.props.users[i];
 			}
 		}
-		
+				
 		return (
 			<Col sm={6}>
 				<FeedCarousel/>
 				<FeedsList places={this.props.places} // naa diri ang location
-                    users={this.props.users} 
-                    currentUserId={currentUser.id}
-                    changeCurrentMapLocation={this.props.changeCurrentMapLocation} 
-                    addComment={this.props.addComment}/>		   	
+                           users={this.props.users} 
+                           comments={this.props.comments}
+                           currentUserId={currentUser.id}
+                           changeCurrentMapLocation={this.props.changeCurrentMapLocation} 
+                           addComment={this.props.addComment}/>		   	
 		  	</Col>
     	)
 	}
@@ -43,18 +44,20 @@ function FeedsList(props) {
 	const feedItems = feed.map((feedItem) => {    
 		return (
 			<FeedItem id={feedItem.id}
-                places={feed}
-                name={feedItem.name} 
-		        		contact={feedItem.contactNumber}
-				        type={feedItem.type}
-				        description={feedItem.description}
-				        imageUrl={feedItem.imageUrl}
-        		    location = {feedItem.location}
-        		    key={feedItem.id.toString()}                 
-                currentUserId={props.currentUserId}
-                className={feedItem.type} 
-                changeCurrentMapLocation={props.changeCurrentMapLocation}
-                addComment={props.addComment}/>
+                      places={feed}
+                      users={props.users}
+                      comments={props.comments}
+                      name={feedItem.name} 
+		        	  contact={feedItem.contactNumber}
+				      type={feedItem.type}
+				      description={feedItem.description}
+				      imageUrl={feedItem.imageUrl}
+        		      location = {feedItem.location}
+        		      key={feedItem.id.toString()}                 
+                      currentUserId={props.currentUserId}
+                 	  className={feedItem.type} 
+                  	  changeCurrentMapLocation={props.changeCurrentMapLocation}
+                	  addComment={props.addComment}/>
 		);
 	});
 

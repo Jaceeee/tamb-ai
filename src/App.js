@@ -18,7 +18,9 @@ class App extends Component {
       locationList: [],
       currentLocation: { lat: -1, lng: -1 },
       places: [],
-      users: []
+      users: [],
+      ratings: [],
+      comments: []
     }
   }
 
@@ -36,10 +38,23 @@ class App extends Component {
     });
   }
 
-  addComment(currentUser, placeId, comment) {
-    console.log(currentUser);
+  addComment(currentUserId, placeId, comment) {
+    console.log(currentUserId);
     console.log(placeId);
     console.log(comment);
+    
+    let newComment = {
+      commenter_id: currentUserId,
+      context: comment,
+      id: this.state.comments.length,
+      place_id: placeId
+    }
+
+    const { comments } = this.state;
+
+    comments.push(newComment);
+
+    this.setState({...this.state, comments});
   }
 
   componentWillMount() {
@@ -68,7 +83,8 @@ class App extends Component {
     base.removeBinding(this.ratingsRef);
   }
 
-  render() {            
+  render() {  
+    console.log(this.state);
     return (  
       <div>
         <LogSwitcher displayState={this.state.displayState}
@@ -77,7 +93,9 @@ class App extends Component {
                      places = {this.state.places} 
                      currentLocation = {this.state.currentLocation}
                      users = {this.state.users} 
-                     addComment={this.addComment}/>                        
+                     comments={this.state.comments}
+                     ratings={this.state.ratings}
+                     addComment={this.addComment.bind(this)}/>                        
       </div>            
     );
   }
@@ -90,6 +108,8 @@ const LogSwitcher = (props) => {
         <Login changeDisplayState={props.changeDisplayState}
                places={props.places}
                users={props.users}
+               comments={props.comments}
+               ratings={props.ratings}
                changeCurrentMapLocation={props.changeCurrentMapLocation}
                currentLocation={props.currentLocation}
                addComment={props.addComment}/>
