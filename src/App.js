@@ -87,7 +87,7 @@ class App extends Component {
     console.log(this.state);
     return (  
       <div>
-        <LogSwitcher displayState={this.state.displayState}
+        <Login       displayState={this.state.displayState}
                      changeDisplayState={this.changeDisplayState.bind(this)}
                      changeCurrentMapLocation={this.changeCurrentMapLocation.bind(this)}
                      places = {this.state.places} 

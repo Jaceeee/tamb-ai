@@ -31,7 +31,7 @@ class FeedItem extends Component {
 					<div>
 						<a><h4>{this.props.name}</h4></a>
 					</div>
-					<Glyphicon glyph="map-marker"/>					
+					<Glyphicon glyph="map-marker" />					
 					<div className="CaptionContainer">
 						<p className="PostCaption">{this.props.description}</p>
 					</div>					
