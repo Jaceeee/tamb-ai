@@ -20,7 +20,21 @@ class Login extends Component {
 
     this.state = {
       authUser: null,
+      originLat: 0,
+      originLng: 0,
     };
+  }
+
+  componentWillMount() {    
+    navigator.geolocation.getCurrentPosition(
+      (position) => {        
+        this.setState({
+          ...this.state,
+          originLat: position.coords.latitude,
+          originLng: position.coords.longitude
+        });
+      }
+    )
   }
 
   componentDidMount() {
@@ -31,7 +45,7 @@ class Login extends Component {
     });
   }
 
-  render() {        
+  render() {            
     return(
       <Router>
         <Grid fluid={true}>                            
@@ -57,7 +71,9 @@ class Login extends Component {
                                    changeCurrentMapLocation={this.props.changeCurrentMapLocation}
                                    currentLocation={this.props.currentLocation} 
                                    addComment={this.props.addComment} 
-                                   addRating={this.props.addRating.bind(this)}/>              
+                                   addRating={this.props.addRating.bind(this)}
+                                   originLng={this.state.originLng}
+                                   originLat={this.state.originLat}/>              
             }
           />
           <Route

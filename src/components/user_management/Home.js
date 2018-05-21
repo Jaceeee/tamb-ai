@@ -18,7 +18,6 @@ const authCondition = (authUser) => !!authUser;
 class Home extends Component {
 
 	componentDidMount() {
-
 		firebase.auth.onAuthStateChanged(authUser => {
 			if(!authCondition(authUser)) {
 				this.props.history.push(routes.SIGN_IN);
@@ -39,14 +38,16 @@ class Home extends Component {
 							 addComment={this.props.addComment}
 							 currentUser={this.props.authUser}/>
 					<Feed places={this.props.places} 
-					      users={this.props.users}   
-					      comments={this.props.comments}              
-					      ratings={this.props.ratings}
-					      changeCurrentMapLocation={this.props.changeCurrentMapLocation}
-					      addComment={this.props.addComment}
-					      currentUser={this.props.authUser}
-					      addRating={this.props.addRating.bind(this)}/>
-					<RightNav currentLocation={this.props.currentLocation}/> 
+						  users={this.props.users}   
+						  comments={this.props.comments}              
+						  ratings={this.props.ratings}
+						  changeCurrentMapLocation={this.props.changeCurrentMapLocation}
+						  addComment={this.props.addComment}
+						  currentUser={this.props.authUser}
+						  addRating={this.props.addRating.bind(this)}/>
+					<RightNav currentLocation={this.props.currentLocation}
+							  originLat={this.props.originLat}
+							  originLng={this.props.originLng}/> 
 				</Row>
 			)			
 		}

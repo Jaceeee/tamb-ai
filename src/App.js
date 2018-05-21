@@ -69,8 +69,7 @@ class App extends Component {
     setState({...this.state, ratings});
   }
 
-  componentWillMount() {
-    setState = this.setState;
+  componentWillMount() {    
     this.usersRef = base.syncState('users', {
       context: this,
       state: 'users'

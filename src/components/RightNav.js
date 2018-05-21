@@ -8,7 +8,9 @@ class RightNav extends Component {
 		return(
 			<Col sm={4}>
 				<div className="RightPanel">
-					<Maps focus={this.props.currentLocation}/>
+					<Maps focus={this.props.currentLocation}
+					      originLng={this.props.originLng}
+					      originLat={this.props.originLat}/>
 				</div>
 			</Col>
 		)
