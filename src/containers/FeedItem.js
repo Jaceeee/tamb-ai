@@ -3,7 +3,6 @@ import RatingTab from '../components/RatingTab';
 import CommentTab from '../components/CommentTab';
 import DetailsTab from '../components/DetailsTab';
 
-import Comment from '../components/Comment';
 import '../stylesheets/Feed.css';
 
 import { Glyphicon, Jumbotron, Image, Tabs, Tab, Modal } from 'react-bootstrap';
@@ -31,7 +30,7 @@ class FeedItem extends Component {
     	let place;
 
     	for (var i = 0; i < this.props.places.length; i++) {
-    		if(this.props.places[i].id == event.target.id) {
+    		if(this.props.places[i].id === event.target.id) {
     			place = this.props.places[i];
     		}
     	}
@@ -57,7 +56,7 @@ class FeedItem extends Component {
 						</Modal>
 					</div>					
 					<div className="FeedTabs">
-						<Tabs defaultActiveKey={2} >
+						<Tabs id="feed-tabs" defaultActiveKey={2} >
 							<Tab eventKey={1} title="Rating">
 								<RatingTab currentUserId={this.props.currentUserId}
 										   addRating={this.props.addRating}

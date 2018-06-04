@@ -36,19 +36,15 @@ export default class RatingTab extends Component {
       let ratingValue = 0, count = 0;
 
       for (var i = 0; i < ratings.length; i++) {        
-        if(ratings[i].place_id === placeId) {
-          console.log("Place");        
-          console.log(placeId);
+        if(ratings[i].place_id === placeId) {          
           ratingValue += ratings[i].rating_value;
-          ++count;
-          console.log(ratings[i].rating_value);
-          console.log(count);
+          ++count;          
         }
       }
 
-      if(count !== 0) {
-        console.log("Change the state");
-        this.setState({...this.state, average: ratingValue / count});
+      if(count !== 0) {        
+
+        this.setState({...this.state, average: Number(Math.round((ratingValue / count) + 'e2') + 'e-2')});        
       }
     }
 
@@ -67,8 +63,8 @@ export default class RatingTab extends Component {
 
       const { currentUserId, placeId } = this.props;
 
-      if(valid) {
-        this.props.addRating(currentUserId, placeId, adjustedText, adjustedRating);      
+      if(valid) {        
+        this.props.addRating(currentUserId, placeId, adjustedText, adjustedRating, Date.now());      
       }
 
       event.preventDefault();
@@ -77,28 +73,30 @@ export default class RatingTab extends Component {
     render() {      
       return (
           <div className="RatingContainer">
-              <p><strong>{this.state.average}</strong> out of 5</p>
-              <ReactStars value={this.state.average} edit={false} size={35} className="StarAverage"></ReactStars>              
-              <Button bsStyle="primary" onClick={this.handleShow}>Rate Place</Button>              
-              <Modal show={this.state.show} onHide={this.handleClose}>
-                <form onSubmit={this.addRating.bind(this)} >
-                  <Modal.Header closeButton>
-                      <Modal.Title>Place Name</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                      <RatingModalBody handleRatingUpdate={this.handleRatingUpdate.bind(this)} 
-                                       handleTextUpdate={this.handleTextUpdate.bind(this)}/>
-                  </Modal.Body>
-                  <Modal.Footer>
-                      <ButtonToolbar className="ModalButtons">
-                          <Button bsStyle="primary" type="submit">Submit</Button>
-                          <Button onClick={this.handleClose}>Cancel</Button>
-                      </ButtonToolbar>
-                  </Modal.Footer>
-                </form>
-              </Modal>
-              <h5>Reviews</h5>
-              <RatingReview ratings={this.props.ratings}/>
+            <p><strong>{this.state.average}</strong> out of 5</p>
+            <ReactStars value={this.state.average} edit={false} size={35} className="StarAverage"></ReactStars>              
+            <Button bsStyle="primary" onClick={this.handleShow}>Rate Place</Button>              
+            <Modal show={this.state.show} onHide={this.handleClose}>
+              <form onSubmit={this.addRating.bind(this)} >
+                <Modal.Header closeButton>
+                  <Modal.Title>Place Name</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <RatingModalBody handleRatingUpdate={this.handleRatingUpdate.bind(this)} 
+                                     handleTextUpdate={this.handleTextUpdate.bind(this)}/>
+                </Modal.Body>
+                <Modal.Footer>
+                  <ButtonToolbar className="ModalButtons">
+                    <Button bsStyle="primary" type="submit">Submit</Button>
+                    <Button onClick={this.handleClose}>Cancel</Button>
+                  </ButtonToolbar>
+                </Modal.Footer>
+              </form>
+            </Modal>
+            <h5>Reviews</h5>
+            <RatingReview place_id={this.props.placeId}
+                          users={this.props.users}
+                          ratings={this.props.ratings}/>
           </div>
         )
     }

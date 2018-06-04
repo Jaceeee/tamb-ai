@@ -13,19 +13,20 @@ const MapWithADirectionsRenderer = compose(
   withScriptjs,
   withGoogleMap,
     lifecycle({
+        componentWillUnmount() {
+
+        },
         componentDidMount() {
             const google=window.google;
             const DirectionsService = new google.maps.DirectionsService();
             var originlat = null;
-            var originlng = null;
-            var error = null;
+            var originlng = null;            
 
             navigator.geolocation.getCurrentPosition(
                 (position) => {                    
                     originlat = position.coords.latitude;
                     originlng = position.coords.longitude;
-                    
-                    error = null;
+                                        
 
                     DirectionsService.route({
                         origin: new google.maps.LatLng(originlat, originlng),
@@ -33,15 +34,15 @@ const MapWithADirectionsRenderer = compose(
                         travelMode: google.maps.TravelMode.DRIVING,
                     }, (result, status) => {
                         if (status === google.maps.DirectionsStatus.OK) {
-                        this.setState({
-                            directions: result,
-                        });
+                          this.setState({
+                              directions: result,
+                          });
                         } else {
-                        console.error(`error fetching directions ${result}`);
+                          console.error(`error fetching directions ${result}`);
                         }
                     });
                 },
-                (error) => error = error.message,
+                ( error) => error = error.message,
                 { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 },    
             )
         }

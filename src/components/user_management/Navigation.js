@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { auth } from '../../firebase';
 
@@ -14,7 +13,7 @@ import { Nav, Navbar, NavItem, Grid, Button, FormGroup, FormControl, Glyphicon }
 const Navigation = ({ authUser }) =>
     <Navbar collapseOnSelect fixedTop>
         <Grid fluid={true}>
-            <Navbar.Header pullRight>
+            <Navbar.Header pullright="true">
                 <Navbar.Brand>
                     {/*Tamb-ai*/}
                 </Navbar.Brand>
@@ -22,8 +21,8 @@ const Navigation = ({ authUser }) =>
             </Navbar.Header>
             <Navbar.Collapse>
                 <Nav>
-                    <NavItem><Link to={routes.ACCOUNT}><Glyphicon glyph="cog" className="SettingGlyph"/>Setting</Link></NavItem>
-                    <NavItem className="Item"><Link to={routes.HOME}><Glyphicon glyph="home" className="ControlItem" />Home</Link></NavItem>
+                    <NavItem href={routes.ACCOUNT}><Glyphicon glyph="cog" className="SettingGlyph"/>Setting</NavItem>
+                    <NavItem href={routes.HOME} className="Item"><Glyphicon glyph="home" className="ControlItem" />Home</NavItem>
                     <NavItem><Glyphicon glyph="envelope" className="ControlItem"/>Notifications</NavItem>
                 </Nav>
                 <Nav pullRight>

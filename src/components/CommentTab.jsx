@@ -25,7 +25,7 @@ export default class CommentTab extends Component {
       this.refs.comment.value = '';
 
       if(valid) {
-        this.props.addComment(currentUserId, placeId, comment);      
+        this.props.addComment(currentUserId, placeId, comment, Date.now());      
       }
 
       event.preventDefault();
@@ -51,6 +51,23 @@ export default class CommentTab extends Component {
     }
 }
 
+const formatDate = (date) => {
+  var d = new Date(date),
+    month = '' + (d.getMonth() + 1),
+    day = '' + (d.getDate() + 1),
+    year = '' + d.getFullYear();
+
+    if(day < 2) {
+      day = '0' + day;
+    }
+
+    if(month < 2) {
+      month = '0' + month;      
+    }
+        
+    return [month, day, year].join('-');
+}
+
 const CommentItems = (props) => {
   const { comments, users, placeId } = props;
     
@@ -68,34 +85,29 @@ const CommentItems = (props) => {
     }
 
 
-    return (<CommentItem context={commentItem.context}
-                        user={user} />);
+    return (<CommentItem key={commentItem.id}
+                         context={commentItem.context}
+                         date_published={commentItem.date_published}
+                         user={user} />);
   });  
 
   return (
-    <ul className="CommentList">
-      <li className="CommentContainer">
-        <div className="CommenterImage">
-          <Image src="http://placekitten.com/50/50" circle responsive />
-        </div>
-        <div className="CommentText">
-          <p><a className="CommenterName">"John Caesar Patac"</a>Sample Comment</p>
-          <div className="DateSubText">on May 9, 2018</div>
-        </div>
-      </li>
+    <ul className="CommentList">      
       {commentsList}
     </ul>
   );  
 }
 
-const CommentItem = (props) => (
-  <li className="CommentContainer">
-    <div className="CommenterImage">
-      <Image src="http://placekitten.com/50/50" circle responsive />
-    </div>
-    <div className="CommentText">
-      <p><a className="CommenterName">{`${props.user.first_name} ${props.user.last_name}`}</a>{props.context}</p>
-      <div className="DateSubText">on May 9, 2018</div>
-    </div>
-  </li>
-)
+const CommentItem = (props) => {
+  const datePassed = new Date(props.date_published);          
+  return (
+    <li className="CommentContainer">
+      <div className="CommenterImage">
+        <Image src="http://placekitten.com/50/50" circle responsive />
+      </div>
+      <div className="CommentText">
+        <p><a className="CommenterName">{`${props.user.first_name} ${props.user.last_name}`}</a>{props.context}</p>
+        <div className="DateSubText">{formatDate(datePassed)}</div>
+      </div>
+    </li>
+)}

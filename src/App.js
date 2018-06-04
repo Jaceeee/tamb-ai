@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-import Login from './components/user_management/Login';
-// import Header from './components/Header';
-// import LeftNav from './components/LeftNav';
-// import RightNav from './components/RightNav';
-// import Feed from './components/Feed';
 import { firebase } from './firebase';
-// import { Grid, Row } from 'react-bootstrap';
+import Login from './components/user_management/Login';
+
 import './App.css';
 
 const base = firebase.base;
-let setState;
 
 class App extends Component {    
   constructor() {
@@ -38,12 +33,13 @@ class App extends Component {
     });    
   }
 
-  addComment(currentUserId, placeId, comment) {    
+  addComment(currentUserId, placeId, comment, date_commented) {    
     let newComment = {
       commenter_id: currentUserId,
       context: comment,
       id: this.state.comments.length,
-      place_id: placeId
+      place_id: placeId,
+      date_published: date_commented
     }
 
     const { comments } = this.state;
@@ -53,20 +49,21 @@ class App extends Component {
     this.setState({...this.state, comments});
   }
 
-  addRating(currentUserId, placeId, text, rate_value) {    
+  addRating(currentUserId, placeId, text, rate_value, date_submitted) {    
     let newRating = {
       id: this.state.ratings.length,
       place_id: placeId,
-      rate_value: rate_value,
+      rating_value: rate_value,
       rater_id: currentUserId,
-      text: text
+      text: text,
+      date_published: date_submitted
     }
 
     const { ratings } = this.state;
 
     ratings.push(newRating);
-        
-    setState({...this.state, ratings});
+            
+    this.setState({...this.state, ratings});
   }
 
   componentWillMount() {    
